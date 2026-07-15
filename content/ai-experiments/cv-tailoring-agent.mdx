@@ -1,0 +1,35 @@
+---
+title: "CV Tailoring Agent"
+summary: "A Claude skill that reads a job posting and my CV knowledge base, then drafts a tailored CV in my own template — no blank page, no generic resume."
+date: "2026-06-20"
+status: "Shipped"
+tags: ["Claude", "Agents", "Automation", "Job search"]
+featured: true
+---
+
+## Overview
+
+Tailoring a CV per application is the kind of task that's simple in principle and tedious in practice: read the posting, figure out which parts of your background are relevant, rewrite the framing, keep the formatting consistent. I was doing this by hand for every application, which meant either doing it properly and slowly, or doing it fast and generically. Neither felt good.
+
+The experiment: build a Claude skill that owns the whole loop. Point it at a job posting, and it drafts a CV in my existing two-column template, pulling from a maintained knowledge base of my experience rather than reinventing my background each time.
+
+## Architecture
+
+The system is intentionally low on custom infrastructure — most of the "engineering" is in how the knowledge base and the skill instructions are structured, not in a bespoke app.
+
+- **A structured knowledge base** of my experience, achievements and skills, kept as source-of-truth documents rather than baked into any single CV.
+- **A template-aware generation step** that knows the exact layout (two-column, sidebar for skills/languages/certifications, main column for experience) and fills it rather than freestyling a new format each time.
+- **A per-application tailoring pass** that reads the job description, decides which experience and skills to foreground, and rewrites the "About me" framing without inventing anything not present in the knowledge base.
+- **Output as an actual `.docx`,** matching the format I'd send a recruiter, not a chat message I'd have to reformat myself.
+
+## Lessons learned
+
+The hard part was never the writing — Claude is good at that by default. The hard part was constraining it: keeping every tailored version factually anchored to the same underlying knowledge base so that "tailored" never drifted into "embellished." Explicit source-of-truth documents, read fresh each time rather than summarized-and-cached, turned out to matter more than any prompting trick.
+
+The other lesson was about templates: a generic "write me a CV" prompt produces generic-looking output. Giving the agent a real, opinionated template to fill — rather than asking it to design a layout from scratch — produced consistently better results and meant every version actually looked like *my* CV, not a new one each time.
+
+## Future improvements
+
+- Feed in interview outcomes to learn which framings actually land, not just which are factually accurate.
+- Extend the same knowledge base to a matching cover-letter agent, sharing the tailoring logic rather than duplicating it.
+- Add a lightweight diff view so I can see what changed between the generic base CV and a tailored version before sending it.

@@ -1,0 +1,15 @@
+---
+title: "A benchmark for how honestly AI agents report their own uncertainty"
+summary: "Most evals score correctness. This one would score whether an agent's stated confidence actually tracks how often it's right — a different, arguably more useful, property."
+date: "2026-06-01"
+status: "Idea"
+tags: ["AI", "Evaluation", "Agents"]
+---
+
+Most evaluation frameworks I've looked at score whether an agent's answer was *correct*. Fewer score whether the agent's stated confidence was *warranted* — whether "I'm fairly sure" actually means it's right more often than "I'm not sure." That second property matters more than it gets credit for, especially for agents making decisions inside a larger workflow where a human isn't checking every step.
+
+**The idea:** a benchmark that doesn't just ask "was the answer right," but pairs every answer with a confidence statement and scores the *calibration* — across many trials, do the agent's high-confidence answers cluster near 100% correct, and do its hedged answers cluster meaningfully lower? An agent that's right 95% of the time but expresses the same confidence regardless of difficulty is, in a real sense, less trustworthy than one that's right 85% of the time but reliably tells you when it's guessing.
+
+**Why this is still just an idea:** getting agents to produce a genuine confidence signal, rather than a performed one, is the hard part — a model can learn to say "I'm not sure" in exactly the cases humans expect hedging, without that phrase tracking its actual internal uncertainty. Any benchmark here has to guard against measuring "sounds appropriately humble" instead of "is actually calibrated."
+
+**Where I'd start:** a narrow domain with cheaply verifiable ground truth — code that either passes tests or doesn't, factual claims that are checkable — and a large number of trials per difficulty tier, so calibration curves are statistically meaningful rather than anecdotal. The interesting result wouldn't be a leaderboard number; it'd be the shape of the curve.

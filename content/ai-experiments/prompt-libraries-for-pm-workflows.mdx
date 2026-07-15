@@ -1,0 +1,28 @@
+---
+title: "Prompt libraries for repeatable PM workflows"
+summary: "Turning the PM tasks I do every week — metrics reviews, stakeholder updates, spec drafts — into reusable, versioned prompts instead of one-off chats."
+date: "2026-04-10"
+status: "Prototype"
+tags: ["Prompt engineering", "Claude", "Workflow"]
+---
+
+## Overview
+
+A lot of my week is structurally repeatable — a metrics review has the same shape every time, a stakeholder update follows the same logic translated for different audiences, a spec has the same sections even when the feature is new. I kept re-explaining that structure to an AI assistant from scratch in every conversation, which is exactly the kind of waste that's easy to overlook because each individual instance feels small.
+
+The experiment: treat prompts like code. Version them, keep them in a shared library, and iterate on them the same way I'd iterate on a product spec — with explicit inputs, explicit outputs, and change notes on why a prompt changed.
+
+## Architecture
+
+- **A library of task-specific prompt templates**, each scoped to one recurring workflow (metrics review, stakeholder update, spec draft, sprint plan) with explicit placeholders for the variable inputs.
+- **A lightweight versioning convention** — each prompt change is a deliberate edit with a one-line rationale, so I can tell later why a template looks the way it does.
+- **Inputs kept separate from instructions**, so the same "write a stakeholder update" template can take this week's numbers without me re-describing what a good stakeholder update looks like every time.
+
+## Lessons learned
+
+The biggest gain wasn't speed, it was consistency — stakeholders started noticing that updates had a recognizable shape, which made them faster to read, not just faster to write. The biggest failure mode was over-templating: a couple of early prompts were so rigid they fought the actual variation in the underlying work, and I had to loosen them back toward guidance rather than a fill-in-the-blank form.
+
+## Future improvements
+
+- Add a feedback loop where edits I make to a generated draft get folded back into the template, not just the one-off output.
+- Share the library format as a reusable pattern rather than a personal tool, since the underlying idea (repeatable workflow, versioned prompt, separated inputs) isn't specific to product management.

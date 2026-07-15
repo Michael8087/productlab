@@ -1,0 +1,21 @@
+---
+title: "What building with Claude agents taught me about writing requirements"
+summary: "Agents fail differently than software does — and that difference is a useful mirror for how vague our specs usually are."
+date: "2026-06-25"
+tags: ["AI", "Product management", "Specs"]
+featured: true
+---
+
+Traditional software fails loudly and specifically: a null pointer, a broken build, a test that goes red. You find out immediately when a requirement was ambiguous, because the code simply won't compile until you resolve the ambiguity yourself. Agentic AI systems fail differently — they don't stop, they *guess*, plausibly and confidently, and the failure often looks identical to success until you check closely.
+
+That difference turned out to be a surprisingly good diagnostic for how sloppy my own requirements were. When I asked an agent to "tailor my CV for this role" without specifying what "tailor" meant precisely — which parts of my background to foreground, how much liberty to take with framing, what counted as embellishment versus emphasis — it filled the gap with its own reasonable-sounding interpretation. A junior engineer might have asked a clarifying question. The agent just produced an answer, and the answer looked complete.
+
+A few things changed in how I write specs, directly because of this:
+
+**I now write down the boundary, not just the goal.** "Tailor the CV to the role" is a goal. "Tailor by reordering and reframing existing experience; never invent claims not present in the source material" is a boundary. Agents will happily operate anywhere inside a goal you haven't bounded, and so, in practice, will most collaborators.
+
+**I ask for the reasoning, not just the output.** The fastest way to catch a bad assumption is to see it stated, not to infer it from the result. This is as true of a junior PM's first draft spec as it is of an agent's first draft CV — asking "why did you frame it this way" surfaces the gap between what I meant and what I said.
+
+**I treat the first output as a probe, not a deliverable.** The value of a fast first draft from an agent isn't the draft — it's that it tells you, quickly and cheaply, exactly where your instructions were underspecified. That's a mindset shift: the draft is a diagnostic tool for the spec, not just an artifact to polish.
+
+None of this is unique to AI. It's the same lesson every PM eventually learns about handing a vague ticket to an engineer and getting back something technically correct and completely wrong. Agents just surface it faster, because they never push back and never ask.

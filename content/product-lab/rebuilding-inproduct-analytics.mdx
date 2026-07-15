@@ -1,0 +1,41 @@
+---
+title: "Rebuilding in-product analytics for 17,000+ accounts"
+summary: "Turning a dashboard feature into a decision-support system used by 80,000+ people a week — without a rewrite."
+date: "2026-01-15"
+period: "2022–Present"
+role: "Senior Product Manager"
+tags: ["Analytics", "Dashboards", "B2B SaaS", "Data platform"]
+featured: true
+---
+
+## The problem
+
+The analytics surface I inherited was popular but shallow: users could build charts, but the product stopped there. Every question that required comparing periods, segmenting by team, or catching a metric drifting off-plan meant exporting to a spreadsheet. Usage was high because there was no alternative inside the product, not because the experience was good — a distinction that's easy to miss if you only look at DAU.
+
+The mandate was broad: evolve dashboards from a reporting feature into a system customers could actually make decisions with, without breaking the workflows 17,000+ accounts already depended on.
+
+## Constraints
+
+- **No big-bang rewrite.** The existing dashboard engine underpinned revenue-critical workflows. Anything new had to be additive and backward-compatible.
+- **Data infrastructure was shared,** not owned by this team — every new capability (calculated fields, pivot views, automated insights) had a real cost against a roadmap I didn't fully control.
+- **The user base was bimodal.** Power users wanted pivot tables and calculated fields; the majority wanted the product to just tell them what mattered. Optimizing for one group risked alienating the other.
+
+## Decisions
+
+I split the roadmap into two parallel tracks instead of picking one persona to serve. The first built out expressive power — widgets, filters, calculated fields, pivot views — for the users who wanted to construct their own analysis. The second built automated insights that surfaced anomalies and trends without requiring the user to know what to look for.
+
+The riskier call was sequencing: automated insights shipped before the expressive-power track was fully mature, on the bet that "tell me what changed" delivers value faster than "let me build anything," even in an incomplete state. That bet meant the first insight release was narrower in scope than stakeholders wanted.
+
+## Trade-offs
+
+Shipping the narrower version meant absorbing internal pressure to wait for a more complete feature set. It also meant early insights sometimes surfaced things users already knew, which is a specific kind of bad first impression for a "smart" feature. I traded a stronger initial launch for faster real-usage signal on whether automated insight even changed behavior, versus just being a nice-to-have.
+
+The data-foundation work was the other trade-off: investing in scalable, reliable infrastructure slowed near-term feature velocity but was the only way calculated fields and pivot views wouldn't degrade query performance as accounts grew. Skipping it would have shown up as a production incident, not a roadmap slip — worth the trade.
+
+## Outcome
+
+Dashboards grew into a system with 80,000+ weekly active users, contributing to $6M+ in monthly recurring revenue. The expressive-power track (widgets, filters, calculated fields, pivot views) and the automated-insights track both shipped and now compound each other — insights surface what to look at, the underlying tooling lets users go deeper once they're there.
+
+## What I learned
+
+High usage of a mediocre feature is not validation — it's often just an absence of alternatives, and it's worth being honest with yourself about which one you're looking at. Sequencing a narrower, faster version of a "smart" feature ahead of a fuller one was uncomfortable but right: real usage data settled internal debates that would have otherwise run on opinion. And infrastructure work that doesn't show up in a release note is often the actual gating factor on whether the visible roadmap survives contact with scale.

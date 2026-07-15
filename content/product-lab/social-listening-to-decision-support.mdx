@@ -1,0 +1,37 @@
+---
+title: "Turning social listening into a decision-support product"
+summary: "Moving a listening tool from 'here's the data' to 'here's what to do about it', in partnership with an ML team."
+date: "2022-06-01"
+period: "2020–2022"
+role: "Product Manager"
+tags: ["Analytics", "Machine learning", "Social listening"]
+featured: true
+---
+
+## The problem
+
+The product monitored brand mentions and conversation volume across social platforms and did it well — but "well" meant comprehensive, not useful. Customers got a firehose of mentions and sentiment scores and were left to do the actual interpretation themselves. The gap between "we have the data" and "we know what to do" was the whole job.
+
+## Constraints
+
+- **Sentiment and topic models were built by a separate ML team** with their own roadmap and accuracy targets — product decisions about what to surface had to work within model confidence levels I didn't control, not idealized ones.
+- **Real-time expectations clashed with model latency.** Customers wanted listening to feel live; some of the more useful classification happened in batch.
+- **False positives were expensive.** Surfacing a "crisis" that wasn't one damaged trust in the product faster than missing a real one built it.
+
+## Decisions
+
+Instead of exposing raw model output, I worked with the ML team to define a smaller set of decision-relevant signals — spikes worth a human look, sustained sentiment shifts, and emerging topics — each with an explicit confidence threshold below which nothing surfaced at all. Silence became a deliberate design choice, not a gap.
+
+I also pushed to expose model uncertainty in the UI rather than hide it, even though it was a harder design problem than a clean binary alert. A listening tool that occasionally says "this might be noise" is more trustworthy long-term than one that's confidently wrong.
+
+## Trade-offs
+
+Raising the confidence threshold for alerts meant the product missed some genuine early signals that a lower threshold would have caught — a real cost, accepted deliberately to avoid false-positive fatigue. Showing uncertainty in the UI added complexity that a "just tell me the answer" customer segment didn't want, and some of that segment churned. I judged that trade worth it because the customers who stayed trusted the product more, and trust is what listening tools are actually selling.
+
+## Outcome
+
+The product shifted from a monitoring tool to something customers used to make actual calls — escalate, respond, or ignore — with meaningfully fewer false alarms than the previous alerting approach. The confidence-threshold framework became the template the ML team reused for later signal types.
+
+## What I learned
+
+Partnering with an ML team works best when product treats model uncertainty as a design input, not a bug to hide. The instinct to smooth over "the model isn't sure" into a clean UI is usually wrong — it just moves the uncertainty from the interface into the customer's trust in you, where it's more expensive to fix.
