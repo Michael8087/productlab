@@ -21,7 +21,7 @@ export default function AboutPage() {
           I build analytics platforms, dashboards, and AI-enhanced products —
           the kind that quietly change what a few thousand people do with
           their Monday morning, rather than the kind that make a good demo.
-          I'm a Senior Product Manager by title, but the actual job is turning
+          I&apos;m a Senior Product Manager by title, but the actual job is turning
           ambiguous problems into things that ship and hold up under real use.
         </p>
       </Reveal>
@@ -40,8 +40,8 @@ export default function AboutPage() {
       <Reveal delay={0.1} className="mt-10">
         <h2 className="font-display text-lg font-medium text-ink">What problems excite me</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
-          Systems where the interesting failure mode isn't "it's broken," it's
-          "it's technically correct and nobody trusts it" — analytics people
+          Systems where the interesting failure mode isn&apos;t &ldquo;it&apos;s broken,&rdquo; it&apos;s
+          &ldquo;it&apos;s technically correct and nobody trusts it&rdquo; — analytics people
           ignore, AI agents that hedge for the wrong reasons, dashboards that
           get looked at and never acted on. Most of my product work lives in
           that gap between correct and useful.
@@ -67,7 +67,7 @@ export default function AboutPage() {
 
       <Reveal delay={0.2} className="mt-14 border-t border-line pt-10">
         <h2 className="font-display text-lg font-medium text-ink">Get in touch</h2>
-        <a
+        
           href="mailto:mike.minovsky@gmail.com"
           className="mt-4 inline-flex items-center gap-2 rounded-lg border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:border-line-strong hover:bg-mist"
         >
