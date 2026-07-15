@@ -26,4 +26,52 @@ export default function AboutPage() {
         </p>
       </Reveal>
 
-      <Reveal delay={0.05}
+      <Reveal delay={0.05} className="mt-12">
+        <h2 className="font-display text-lg font-medium text-ink">What I enjoy building</h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+          Decision-support tools more than reporting tools — dashboards,
+          analytics systems and AI agents that change what someone does next,
+          not just what they know. I like the unglamorous parts too: data
+          foundations, calibration, the difference between a metric moving
+          and a metric mattering.
+        </p>
+      </Reveal>
+
+      <Reveal delay={0.1} className="mt-10">
+        <h2 className="font-display text-lg font-medium text-ink">What problems excite me</h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+          Systems where the interesting failure mode isn&apos;t &ldquo;it&apos;s broken,&rdquo; it&apos;s
+          &ldquo;it&apos;s technically correct and nobody trusts it&rdquo; — analytics people
+          ignore, AI agents that hedge for the wrong reasons, dashboards that
+          get looked at and never acted on. Most of my product work lives in
+          that gap between correct and useful.
+        </p>
+      </Reveal>
+
+      <Reveal delay={0.15} className="mt-10">
+        <h2 className="font-display text-lg font-medium text-ink">Background, briefly</h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+          MA Economics &amp; Policy (UCL), MSc Smart Building Control (CTU),
+          BA Sociology &amp; Economics (Charles University). Product roles
+          spanning hardware, social analytics, and enterprise SaaS — details
+          in the <a href="/product-lab" className="border-b border-amber-100 font-medium text-ink hover:border-amber-500">Product Lab</a> and{" "}
+          <a href="/timeline" className="border-b border-amber-100 font-medium text-ink hover:border-amber-500">Timeline</a>.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <Badge>Czech — native</Badge>
+          <Badge>English — native</Badge>
+          <Badge>French — professional</Badge>
+          <Badge>German — elementary</Badge>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.2} className="mt-14 border-t border-line pt-10">
+        <h2 className="font-display text-lg font-medium text-ink">Get in touch</h2>
+        <a href="mailto:mike.minovsky@gmail.com" className="mt-4 inline-flex items-center gap-2 rounded-lg border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:border-line-strong hover:bg-mist">
+          <Mail size={16} />
+          mike.minovsky@gmail.com
+        </a>
+      </Reveal>
+    </Container>
+  );
+}
