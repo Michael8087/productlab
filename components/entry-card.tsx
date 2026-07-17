@@ -1,3 +1,4 @@
+// components/entry-card.tsx
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "./badge";
@@ -8,7 +9,8 @@ export function EntryCard({
   title,
   summary,
   tags,
-  meta
+  meta,
+  external = false
 }: {
   href: string;
   eyebrow?: string;
@@ -16,12 +18,10 @@ export function EntryCard({
   summary: string;
   tags?: string[];
   meta?: string;
+  external?: boolean;
 }) {
-  return (
-    <Link
-      href={href}
-      className="group block rounded-xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-mist/60"
-    >
+  const content = (
+    <>
       <div className="flex items-start justify-between gap-4">
         <div>
           {eyebrow ? (
@@ -51,6 +51,23 @@ export function EntryCard({
           </span>
         ) : null}
       </div>
+    </>
+  );
+
+  const className =
+    "group block rounded-xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-mist/60";
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
     </Link>
   );
 }
