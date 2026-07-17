@@ -1,3 +1,4 @@
+// components/section-index.tsx
 import type { Entry } from "@/lib/types";
 import { Container } from "./container";
 import { SectionHeading } from "./section-heading";
@@ -27,7 +28,8 @@ export function SectionIndex({
         {entries.map((entry, i) => (
           <Reveal key={entry.slug} delay={Math.min(i * 0.05, 0.3)}>
             <EntryCard
-              href={`${basePath}/${entry.slug}`}
+              href={entry.link ?? `${basePath}/${entry.slug}`}
+              external={Boolean(entry.link)}
               eyebrow={entry.status ?? entry.period}
               title={entry.title}
               summary={entry.summary}
