@@ -11,6 +11,7 @@ export interface Frontmatter {
   role?: string;
   cover?: string;
   draft?: boolean;
+  link?: string; // if set, cards link straight out to this external URL instead of an internal detail page
 }
 
 export interface Entry extends Frontmatter {
