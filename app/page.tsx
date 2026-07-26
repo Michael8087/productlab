@@ -19,11 +19,11 @@ export default function HomePage() {
               Product Lab
             </p>
             <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight text-ink md:text-5xl">
-              I build products, then take them apart to see how they work.
+              I find real value, then build and ship it.
             </h1>
             <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
               Michael Miňovský — Senior Product Manager working on analytics,
-              dashboards and AI-enhanced products. This is a working notebook,
+              complex products, and AI-powered ones. This is a working notebook,
               not a résumé: case studies, AI experiments, writing, and the
               half-finished ideas in between.
             </p>
