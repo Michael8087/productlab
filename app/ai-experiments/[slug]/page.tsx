@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllSlugs, getEntry } from "@/lib/content";
 import { EntryDetail } from "@/components/entry-detail";
 import { CvTailoringTool } from "@/components/cv-tailoring-tool";
+import { DigitalRealtorTool } from "@/components/digital-realtor-tool";
 
 export function generateStaticParams() {
   return getAllSlugs("ai-experiments").map((slug) => ({ slug }));
@@ -21,6 +22,7 @@ export default function AIExperimentEntryPage({ params }: { params: { slug: stri
     <>
       <EntryDetail entry={entry} basePath="/ai-experiments" backLabel="AI Experiments" />
       {params.slug === "cv-tailoring-agent" ? <CvTailoringTool /> : null}
+      {params.slug === "digital-realtor" ? <DigitalRealtorTool /> : null}
     </>
   );
 }

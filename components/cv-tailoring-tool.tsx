@@ -78,10 +78,8 @@ export function CvTailoringTool() {
             Run the CV Tailoring Agent
           </h2>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
-            This calls the real Claude API, grounded only in my actual background —
-            it won&apos;t invent experience I don&apos;t have. Paste a job posting, generate a
-            draft, then use the third field to steer it (tone, what to emphasize,
-            length) and regenerate as many times as you like.
+            Calls the real Claude API, grounded in my actual background. Paste
+            a job posting, generate a draft, then steer it and regenerate.
           </p>
         </Reveal>
 

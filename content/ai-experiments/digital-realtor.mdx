@@ -1,0 +1,32 @@
+---
+title: "Digital Realtor"
+summary: "A live in-ear coach for real estate agents — listens during a property viewing and surfaces the right talking points, objection responses, and negotiation reminders in real time."
+date: "2026-07-23"
+status: "Shipped"
+tags: ["Claude", "Voice", "Agents"]
+---
+
+## Overview
+
+A real estate agent showing a property is doing several jobs at once — narrating the house, reading the buyer's reactions, and holding a mental map of every strength, weakness, and FAQ they should mention. Most of that gets forgotten or delivered inconsistently under pressure. The idea: put the checklist in an AI agent instead of the agent's head.
+
+You fill in the property once — basics, strengths, weaknesses (paired with a counter-argument), FAQs, and a private negotiation strategy. During the viewing, the tool listens continuously via the browser's speech recognition, and either on a timer or on demand, sends the recent conversation to Claude, which returns short, spoken-language suggestions: a strength to bring up, a response to an objection it just heard, or a tactical reminder — without ever suggesting the agent say something from the private strategy notes out loud.
+
+## Architecture
+
+- **Client-side continuous transcription** via the Web Speech API, kept entirely in the browser — no audio is ever uploaded, only the rolling text transcript.
+- **A structured property knowledge base** (basics, strengths, weaknesses → counter-argument pairs, FAQ, private strategy) saved locally and sent as grounding context with every request.
+- **A server-side API route** that holds the Claude API key and does the actual reasoning — the client never talks to Claude directly, so the key is never exposed in the browser.
+- **A repeat-avoidance list** — the last several suggestions shown are passed back into the prompt so Claude doesn't loop the same talking point.
+- **A hard prompt boundary** around the private strategy field: it's included for tactical grounding but the model is explicitly instructed never to suggest saying it aloud.
+
+## Lessons learned
+
+Porting a single-file HTML prototype into a real app surfaced the gap between "looks done" and "is done" — the original called the Claude API directly from the browser with no key and relied on a storage API that doesn't exist outside a sandboxed demo environment. Neither would have survived contact with a real browser. The fix was the same pattern as the CV Tailoring Agent: keep the model call server-side, keep the client dumb.
+
+The other lesson was about pacing: advising too eagerly (every few seconds) made the suggestions feel noisy and reactive rather than helpful, so the automatic trigger is time- and length-gated, with a manual "advise me now" button as the fast path when the agent actually wants input.
+
+## Future improvements
+
+- Let the agent mark a suggestion as "used" so Claude has a firmer signal beyond just avoiding repeats.
+- Summarize the viewing afterward — what got covered, what objections came up, what to follow up on.

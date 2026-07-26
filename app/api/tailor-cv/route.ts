@@ -5,6 +5,36 @@ import { CV_KNOWLEDGE_BASE } from "@/lib/cv-knowledge-base";
 export const runtime = "nodejs";
 
 const MAX_FIELD_LENGTH = 6000;
+const DAILY_LIMIT = 3;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// In-memory per-IP counter. Resets 24h after an IP's first run in the current
+// window. Good enough for a low-traffic public demo; not durable across
+// serverless cold starts or multiple regions.
+const requestLog = new Map<string, { count: number; windowStart: number }>();
+
+function getClientIp(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0].trim();
+  return req.headers.get("x-real-ip") || "unknown";
+}
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now();
+  const entry = requestLog.get(ip);
+
+  if (!entry || now - entry.windowStart > DAY_MS) {
+    requestLog.set(ip, { count: 1, windowStart: now });
+    return { allowed: true, remaining: DAILY_LIMIT - 1 };
+  }
+
+  if (entry.count >= DAILY_LIMIT) {
+    return { allowed: false, remaining: 0 };
+  }
+
+  entry.count += 1;
+  return { allowed: true, remaining: DAILY_LIMIT - entry.count };
+}
 
 const SYSTEM_PROMPT = `You are drafting a CV for Michael Miňovský, based strictly on the
 verified background information provided below. This is a public-facing demo —
@@ -29,6 +59,15 @@ CANDIDATE BACKGROUND (source of truth — do not go beyond this):
 ${CV_KNOWLEDGE_BASE}`;
 
 export async function POST(req: Request) {
+  const ip = getClientIp(req);
+  const { allowed, remaining } = checkRateLimit(ip);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: `Daily limit reached (${DAILY_LIMIT} runs per day). Try again tomorrow.` },
+      { status: 429 }
+    );
+  }
+
   let body: { jobDescription?: string; refinementPrompt?: string; currentCv?: string };
   try {
     body = await req.json();
@@ -60,7 +99,7 @@ export async function POST(req: Request) {
 
   try {
     const cv = await callClaude({ system: SYSTEM_PROMPT, userMessage, maxTokens: 1800 });
-    return NextResponse.json({ cv });
+    return NextResponse.json({ cv, remaining });
   } catch (err) {
     console.error("tailor-cv error:", err);
     return NextResponse.json(

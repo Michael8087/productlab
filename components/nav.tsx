@@ -10,7 +10,7 @@ import { Container } from "./container";
 const links = [
   { href: "/product-lab", label: "Product Lab" },
   { href: "/ai-experiments", label: "AI Experiments" },
-  { href: "/writing", label: "Writing" },
+  { href: "/writing", label: "Writing", disabled: true },
   { href: "/playground", label: "Playground" },
   { href: "/timeline", label: "Timeline" },
   { href: "/about", label: "About" }
@@ -35,6 +35,17 @@ export function Nav() {
           <nav className="hidden items-center gap-7 md:flex">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
+              if (link.disabled) {
+                return (
+                  <span
+                    key={link.href}
+                    aria-disabled="true"
+                    className="cursor-not-allowed font-mono text-[11px] uppercase tracking-wide text-muted/50 line-through"
+                  >
+                    {link.label}
+                  </span>
+                );
+              }
               return (
                 <Link
                   key={link.href}
@@ -66,6 +77,17 @@ export function Nav() {
             <nav className="flex flex-col gap-1 py-4">
               {links.map((link) => {
                 const active = pathname === link.href || pathname.startsWith(link.href + "/");
+                if (link.disabled) {
+                  return (
+                    <span
+                      key={link.href}
+                      aria-disabled="true"
+                      className="cursor-not-allowed rounded-md px-2 py-2.5 font-mono text-xs uppercase tracking-wide text-muted/50 line-through"
+                    >
+                      {link.label}
+                    </span>
+                  );
+                }
                 return (
                   <Link
                     key={link.href}
