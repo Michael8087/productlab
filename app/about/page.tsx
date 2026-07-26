@@ -51,9 +51,10 @@ export default function AboutPage() {
       <Reveal delay={0.15} className="mt-10">
         <h2 className="font-display text-lg font-medium text-ink">Background, briefly</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
-          MA Economics &amp; Policy (UCL), MSc Smart Building Control (CTU),
-          BA Sociology &amp; Economics (Charles University). Product roles
-          spanning hardware, social analytics, and enterprise SaaS.
+          MA Economics &amp; Policy (UCL), MSc Smart Building Control (ČVUT),
+          Robotics undergraduate studies — 2 years (ČVUT), BA Sociology &amp;
+          Economics (Charles University). Product roles spanning hardware,
+          social analytics, and enterprise SaaS.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           <Badge>Czech — native</Badge>
