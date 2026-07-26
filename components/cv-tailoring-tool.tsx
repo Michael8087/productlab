@@ -75,7 +75,7 @@ export function CvTailoringTool() {
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-wide text-amber-500">Try it live</p>
           <h2 className="mt-3 font-display text-2xl font-medium tracking-tight text-ink md:text-3xl">
-            Run the CV Tailoring Agent
+            Run the CV Builder Agent
           </h2>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
             Calls the real Claude API, grounded in my actual background. Paste

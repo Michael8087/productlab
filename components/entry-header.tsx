@@ -32,9 +32,6 @@ export function EntryHeader({ entry, basePath, backLabel }: { entry: Entry; base
             {entry.tags?.map((tag) => (
               <Badge key={tag}>{tag}</Badge>
             ))}
-            <span className="ml-auto font-mono text-[11px] uppercase tracking-wide text-muted">
-              {entry.readingTime}
-            </span>
           </div>
         </Reveal>
       </Container>

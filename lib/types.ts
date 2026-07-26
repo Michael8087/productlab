@@ -18,13 +18,4 @@ export interface Entry extends Frontmatter {
   slug: string;
   section: Section;
   content: string;
-  readingTime: string;
-}
-
-export interface TimelineItem {
-  date: string; // ISO date
-  title: string;
-  description: string;
-  type: "product" | "experiment" | "talk" | "article" | "milestone";
-  href?: string;
 }

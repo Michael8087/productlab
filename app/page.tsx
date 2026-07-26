@@ -59,12 +59,12 @@ export default function HomePage() {
                 {latestExperiments.map((entry, i) => (
                   <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)}>
                     <EntryCard
-                      href={`/ai-experiments/${entry.slug}`}
+                      href={entry.link ?? `/ai-experiments/${entry.slug}`}
+                      external={Boolean(entry.link)}
                       eyebrow={entry.status}
                       title={entry.title}
                       summary={entry.summary}
                       tags={entry.tags}
-                      meta={entry.readingTime}
                     />
                   </Reveal>
                 ))}
@@ -91,7 +91,6 @@ export default function HomePage() {
                       title={entry.title}
                       summary={entry.summary}
                       tags={entry.tags}
-                      meta={entry.readingTime}
                     />
                   </Reveal>
                 ))}

@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import readingTime from "reading-time";
 import type { Entry, Frontmatter, Section } from "./types";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -20,8 +19,7 @@ function readEntry(section: Section, filename: string): Entry {
     ...frontmatter,
     slug,
     section,
-    content,
-    readingTime: readingTime(content).text
+    content
   };
 }
 

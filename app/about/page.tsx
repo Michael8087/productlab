@@ -53,8 +53,7 @@ export default function AboutPage() {
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           MA Economics &amp; Policy (UCL), MSc Smart Building Control (CTU),
           BA Sociology &amp; Economics (Charles University). Product roles
-          spanning hardware, social analytics, and enterprise SaaS — details
-          in the <a href="/timeline" className="border-b border-amber-100 font-medium text-ink hover:border-amber-500">Timeline</a>.
+          spanning hardware, social analytics, and enterprise SaaS.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           <Badge>Czech — native</Badge>

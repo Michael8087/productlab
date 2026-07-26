@@ -26,7 +26,7 @@ export function SectionIndex({
 
       <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2">
         {entries.map((entry, i) => (
-          <Reveal key={entry.slug} delay={Math.min(i * 0.05, 0.3)}>
+          <Reveal key={entry.slug} delay={Math.min(i * 0.05, 0.3)} className="h-full">
             <EntryCard
               href={entry.link ?? `${basePath}/${entry.slug}`}
               external={Boolean(entry.link)}
@@ -34,7 +34,6 @@ export function SectionIndex({
               title={entry.title}
               summary={entry.summary}
               tags={entry.tags}
-              meta={entry.readingTime}
             />
           </Reveal>
         ))}

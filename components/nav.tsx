@@ -11,7 +11,6 @@ const links = [
   { href: "/ai-experiments", label: "AI Experiments" },
   { href: "/writing", label: "Writing", disabled: true },
   { href: "/playground", label: "Case Studies" },
-  { href: "/timeline", label: "Timeline" },
   { href: "/about", label: "About" }
 ];
 
