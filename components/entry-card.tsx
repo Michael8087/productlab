@@ -22,21 +22,25 @@ export function EntryCard({
 }) {
   const content = (
     <>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-to-r from-amber-400 to-violet-400 transition-transform duration-200 group-hover:scale-x-100"
+      />
       <div className="flex-1">
         <div className="flex items-start justify-between gap-4">
           <div>
             {eyebrow ? (
-              <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-amber-500">
+              <p className="mb-2 font-mono text-[11px] font-semibold uppercase tracking-wide text-amber-600">
                 {eyebrow}
               </p>
             ) : null}
-            <h3 className="font-display text-lg font-medium tracking-tight text-ink">
+            <h3 className="font-display text-lg font-bold tracking-tight text-ink">
               {title}
             </h3>
           </div>
           <ArrowUpRight
             size={18}
-            className="mt-1 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink"
+            className="mt-1 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-600"
           />
         </div>
 
@@ -61,7 +65,7 @@ export function EntryCard({
   );
 
   const className =
-    "group flex h-full flex-col rounded-xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-mist/60";
+    "group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/10";
 
   if (external) {
     return (

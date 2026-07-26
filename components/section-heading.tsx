@@ -14,11 +14,12 @@ export function SectionHeading({
   return (
     <div className={clsx("max-w-2xl", className)}>
       {eyebrow ? (
-        <p className="mb-3 font-mono text-xs uppercase tracking-wider text-amber-500">
+        <p className="mb-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-amber-600">
+          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-display text-2xl font-medium tracking-tight text-ink md:text-3xl">
+      <h2 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
         {title}
       </h2>
       {description ? (

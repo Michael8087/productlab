@@ -2,7 +2,8 @@ import { clsx } from "clsx";
 
 const tones = {
   neutral: "bg-mist text-ink-soft border-line",
-  amber: "bg-amber-50 text-amber-700 border-amber-100"
+  amber: "bg-amber-50 text-amber-700 border-amber-100",
+  violet: "bg-violet-50 text-violet-700 border-violet-100"
 };
 
 export function Badge({
@@ -17,7 +18,7 @@ export function Badge({
   return (
     <span
       className={clsx(
-        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide",
+        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-wide",
         tones[tone],
         className
       )}

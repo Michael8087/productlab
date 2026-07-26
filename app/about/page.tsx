@@ -13,17 +13,22 @@ export default function AboutPage() {
   return (
     <Container narrow className="py-20 md:py-28">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-wide text-amber-500">About</p>
-        <h1 className="mt-3 font-display text-3xl font-medium tracking-tight text-ink md:text-4xl">
+        <p className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
+          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+          About
+        </p>
+        <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
           Michael Miňovský
         </h1>
         <p className="mt-6 text-[17px] leading-relaxed text-ink-soft">
           I build technical platforms, AI-powered products, dashboards and more.
+          I&apos;m a Senior Product Manager by title, but the actual job is turning
+          ambiguous problems into things that ship and hold up under real use.
         </p>
       </Reveal>
 
       <Reveal delay={0.05} className="mt-12">
-        <h2 className="font-display text-lg font-medium text-ink">What I enjoy building</h2>
+        <h2 className="font-display text-lg font-bold text-ink">What I enjoy building</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           Decision-support tools more than reporting tools — dashboards,
           analytics systems and AI agents that change what someone does next,
@@ -34,7 +39,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal delay={0.1} className="mt-10">
-        <h2 className="font-display text-lg font-medium text-ink">What problems excite me</h2>
+        <h2 className="font-display text-lg font-bold text-ink">What problems excite me</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           Systems where the interesting failure mode isn&apos;t &ldquo;it&apos;s broken,&rdquo; it&apos;s
           &ldquo;it&apos;s technically correct and nobody trusts it&rdquo; — analytics people
@@ -45,7 +50,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal delay={0.15} className="mt-10">
-        <h2 className="font-display text-lg font-medium text-ink">Background, briefly</h2>
+        <h2 className="font-display text-lg font-bold text-ink">Background, briefly</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           MA Economics &amp; Policy (UCL), MSc Smart Building Control (ČVUT),
           BA Sociology &amp; Economics (Charles University), Robotics
@@ -61,8 +66,8 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal delay={0.2} className="mt-14 border-t border-line pt-10">
-        <h2 className="font-display text-lg font-medium text-ink">Get in touch</h2>
-        <a href="mailto:mike.minovsky@gmail.com" className="mt-4 inline-flex items-center gap-2 rounded-lg border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:border-line-strong hover:bg-mist">
+        <h2 className="font-display text-lg font-bold text-ink">Get in touch</h2>
+        <a href="mailto:mike.minovsky@gmail.com" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2.5 font-mono text-sm font-semibold text-paper shadow-lg shadow-ink/10 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-amber-500/20">
           <Mail size={16} />
           mike.minovsky@gmail.com
         </a>

@@ -11,7 +11,7 @@ export function EntryHeader({ entry, basePath, backLabel }: { entry: Entry; base
       <Container narrow>
         <Link
           href={basePath}
-          className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-muted hover:text-ink"
+          className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600"
         >
           <ArrowLeft size={14} />
           {backLabel}
@@ -19,11 +19,12 @@ export function EntryHeader({ entry, basePath, backLabel }: { entry: Entry; base
 
         <Reveal className="mt-8">
           {entry.status || entry.period ? (
-            <p className="mb-3 font-mono text-xs uppercase tracking-wide text-amber-500">
+            <p className="mb-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
               {entry.status ?? entry.period}
             </p>
           ) : null}
-          <h1 className="font-display text-3xl font-medium tracking-tight text-ink md:text-4xl">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
             {entry.title}
           </h1>
           <p className="mt-4 text-[15px] leading-relaxed text-muted">{entry.summary}</p>

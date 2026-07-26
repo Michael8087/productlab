@@ -14,14 +14,14 @@ export function Footer() {
       <Container>
         <div className="flex flex-col gap-10 py-14 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <p className="font-display text-[15px] font-medium text-ink">Product Lab</p>
+            <p className="font-display text-[15px] font-bold text-ink">Product Lab</p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               A working notebook of products, experiments and ideas — kept in the
               open so it stays honest about what worked and what didn&apos;t.
             </p>
             <a
               href="mailto:mike.minovsky@gmail.com"
-              className="mt-4 inline-block font-mono text-xs uppercase tracking-wide text-amber-500 hover:text-amber-600"
+              className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wide text-amber-600 hover:text-violet-600"
             >
               mike.minovsky@gmail.com
             </a>
@@ -32,7 +32,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-xs uppercase tracking-wide text-muted hover:text-ink"
+                className="font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600"
               >
                 {link.label}
               </Link>

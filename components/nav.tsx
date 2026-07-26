@@ -24,13 +24,13 @@ export function Nav() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="font-display text-[15px] font-medium tracking-tight text-ink"
+            className="font-display text-[15px] font-bold tracking-tight text-ink"
             onClick={() => setOpen(false)}
           >
             Product Lab
           </Link>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
               if (link.disabled) {
@@ -38,7 +38,7 @@ export function Nav() {
                   <span
                     key={link.href}
                     aria-disabled="true"
-                    className="inline-flex cursor-not-allowed items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-muted/50"
+                    className="inline-flex cursor-not-allowed items-center gap-1.5 rounded-full px-3 py-1.5 font-mono text-[11px] uppercase tracking-wide text-muted/50"
                   >
                     {link.label}
                     <span className="rounded-full border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-muted/60">
@@ -52,8 +52,8 @@ export function Nav() {
                   key={link.href}
                   href={link.href}
                   className={clsx(
-                    "font-mono text-[11px] uppercase tracking-wide transition-colors",
-                    active ? "text-amber-500" : "text-muted hover:text-ink"
+                    "rounded-full px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wide transition-colors",
+                    active ? "bg-amber-50 text-amber-600" : "text-muted hover:bg-mist hover:text-ink"
                   )}
                 >
                   {link.label}
@@ -98,8 +98,8 @@ export function Nav() {
                     href={link.href}
                     onClick={() => setOpen(false)}
                     className={clsx(
-                      "rounded-md px-2 py-2.5 font-mono text-xs uppercase tracking-wide",
-                      active ? "bg-amber-50 text-amber-700" : "text-muted"
+                      "rounded-md px-2 py-2.5 font-mono text-xs font-semibold uppercase tracking-wide",
+                      active ? "bg-amber-50 text-amber-600" : "text-muted"
                     )}
                   >
                     {link.label}

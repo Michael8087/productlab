@@ -12,14 +12,21 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-line">
-        <Container className="py-24 md:py-32">
+      <section className="relative overflow-hidden border-b border-line">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-violet-400 opacity-25 blur-3xl md:h-[44rem] md:w-[44rem]"
+        />
+        <Container className="relative py-24 md:py-32">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-wide text-amber-500">
+            <p className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
               Product Lab
             </p>
-            <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight text-ink md:text-5xl">
-              I find real value, then build and ship it.
+            <h1 className="mt-5 max-w-2xl font-display text-5xl font-bold tracking-tight text-ink md:text-6xl">
+              I find real value,{" "}
+              <span className="bg-gradient-to-r from-amber-500 to-violet-500 bg-clip-text text-transparent">
+                then build and ship it.
+              </span>
             </h1>
             <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
               Michael Miňovský — Senior Product Manager working on analytics,
@@ -27,13 +34,13 @@ export default function HomePage() {
               not a résumé: case studies, AI experiments, writing, and the
               half-finished ideas in between.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="/ai-experiments"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-wide text-paper transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-1.5 rounded-lg bg-ink px-5 py-3 font-mono text-xs font-semibold uppercase tracking-wide text-paper shadow-lg shadow-ink/10 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-amber-500/20"
               >
                 Latest AI experiments
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
           </Reveal>
@@ -49,7 +56,7 @@ export default function HomePage() {
                   <SectionHeading eyebrow="Fresh" title="Latest experiments" />
                   <Link
                     href="/ai-experiments"
-                    className="hidden shrink-0 font-mono text-xs uppercase tracking-wide text-muted hover:text-ink md:block"
+                    className="hidden shrink-0 font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600 md:block"
                   >
                     All →
                   </Link>
@@ -77,7 +84,7 @@ export default function HomePage() {
                   <SectionHeading eyebrow="Fresh" title="Latest case studies" />
                   <Link
                     href="/case-studies"
-                    className="hidden shrink-0 font-mono text-xs uppercase tracking-wide text-muted hover:text-ink md:block"
+                    className="hidden shrink-0 font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600 md:block"
                   >
                     All →
                   </Link>

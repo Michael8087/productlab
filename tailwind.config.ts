@@ -23,10 +23,22 @@ const config: Config = {
         amber: {
           50: "#FEF3E2",
           100: "#FCE3BE",
-          400: "#D97F17",
-          500: "#B45309",
-          600: "#94420A",
+          200: "#FBD9A0",
+          300: "#F5A83B",
+          400: "#EA8A0E",
+          500: "#D9670A",
+          600: "#B34F08",
           700: "#7A3608"
+        },
+        violet: {
+          50: "#F4F0FE",
+          100: "#E6DBFD",
+          200: "#CCB4FA",
+          300: "#A87FF5",
+          400: "#8B54EF",
+          500: "#7433E0",
+          600: "#5C22B8",
+          700: "#451A8F"
         }
       },
       fontFamily: {
@@ -43,7 +55,7 @@ const config: Config = {
           css: {
             "--tw-prose-body": "#0D0D12",
             "--tw-prose-headings": "#0D0D12",
-            "--tw-prose-links": "#B45309",
+            "--tw-prose-links": "#B34F08",
             "--tw-prose-bold": "#0D0D12",
             "--tw-prose-quotes": "#3A3A42",
             "--tw-prose-code": "#0D0D12",
@@ -51,8 +63,8 @@ const config: Config = {
             "--tw-prose-bullets": "#D3D3CE",
             "--tw-prose-quote-borders": "#E7E7E4",
             maxWidth: "none",
-            a: { textDecoration: "none", borderBottom: "1px solid #FCE3BE", fontWeight: "500" },
-            "a:hover": { borderBottomColor: "#B45309" },
+            a: { textDecoration: "none", borderBottom: "1px solid #FCE3BE", fontWeight: "600" },
+            "a:hover": { borderBottomColor: "#B34F08" },
             "code::before": { content: "none" },
             "code::after": { content: "none" }
           }
