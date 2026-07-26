@@ -9,7 +9,8 @@ export function EntryCard({
   title,
   summary,
   tags,
-  external = false
+  external = false,
+  confidential = false
 }: {
   href: string;
   eyebrow?: string;
@@ -17,6 +18,7 @@ export function EntryCard({
   summary: string;
   tags?: string[];
   external?: boolean;
+  confidential?: boolean;
 }) {
   const content = (
     <>
@@ -38,7 +40,16 @@ export function EntryCard({
           />
         </div>
 
-        <p className="mt-3 text-sm leading-relaxed text-muted">{summary}</p>
+        {confidential ? (
+          <div className="mt-4 space-y-2">
+            <span className="sr-only">Description withheld — confidential.</span>
+            <div aria-hidden="true" className="h-2.5 w-full animate-pulse rounded bg-line" />
+            <div aria-hidden="true" className="h-2.5 w-11/12 animate-pulse rounded bg-line" />
+            <div aria-hidden="true" className="h-2.5 w-2/3 animate-pulse rounded bg-line" />
+          </div>
+        ) : (
+          <p className="mt-3 text-sm leading-relaxed text-muted">{summary}</p>
+        )}
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">

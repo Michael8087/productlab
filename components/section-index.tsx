@@ -34,6 +34,7 @@ export function SectionIndex({
               title={entry.title}
               summary={entry.summary}
               tags={entry.tags}
+              confidential={entry.confidential}
             />
           </Reveal>
         ))}

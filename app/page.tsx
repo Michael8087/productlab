@@ -93,6 +93,7 @@ export default function HomePage() {
                       title={entry.title}
                       summary={entry.summary}
                       tags={entry.tags}
+                      confidential={entry.confidential}
                     />
                   </Reveal>
                 ))}

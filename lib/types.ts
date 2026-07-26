@@ -12,6 +12,7 @@ export interface Frontmatter {
   cover?: string;
   draft?: boolean;
   link?: string; // if set, cards link straight out to this external URL instead of an internal detail page
+  confidential?: boolean; // if set, the card shows the title but masks the summary behind a skeleton placeholder
 }
 
 export interface Entry extends Frontmatter {
