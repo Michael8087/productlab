@@ -1,4 +1,4 @@
-export type Section = "product-lab" | "ai-experiments" | "writing" | "playground";
+export type Section = "ai-experiments" | "writing" | "playground";
 
 export interface Frontmatter {
   title: string;

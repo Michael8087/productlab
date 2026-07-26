@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { getFeatured, getLatest } from "@/lib/content";
+import { getLatest } from "@/lib/content";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { EntryCard } from "@/components/entry-card";
 import { Reveal } from "@/components/reveal";
 
 export default function HomePage() {
-  const featuredProjects = getFeatured("product-lab", 3);
   const latestExperiments = getLatest("ai-experiments", 2);
   const latestWriting = getLatest("writing", 2);
 
@@ -30,51 +29,14 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/product-lab"
+                href="/ai-experiments"
                 className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-wide text-paper transition-opacity hover:opacity-90"
               >
-                View the lab
+                Latest AI experiments
                 <ArrowUpRight size={14} />
               </Link>
-              <Link
-                href="/ai-experiments"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-line px-4 py-2.5 font-mono text-xs uppercase tracking-wide text-ink transition-colors hover:border-line-strong hover:bg-mist"
-              >
-                Latest AI experiments
-              </Link>
             </div>
           </Reveal>
-        </Container>
-      </section>
-
-      <section>
-        <Container className="py-20 md:py-28">
-          <Reveal>
-            <div className="flex items-end justify-between gap-6">
-              <SectionHeading eyebrow="Featured" title="Featured projects" />
-              <Link
-                href="/product-lab"
-                className="hidden shrink-0 font-mono text-xs uppercase tracking-wide text-muted hover:text-ink md:block"
-              >
-                All case studies →
-              </Link>
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {featuredProjects.map((entry, i) => (
-              <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.24)}>
-                <EntryCard
-                  href={`/product-lab/${entry.slug}`}
-                  eyebrow={entry.period}
-                  title={entry.title}
-                  summary={entry.summary}
-                  tags={entry.tags}
-                  meta={entry.readingTime}
-                />
-              </Reveal>
-            ))}
-          </div>
         </Container>
       </section>
 

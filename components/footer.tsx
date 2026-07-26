@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Container } from "./container";
 
 const links = [
-  { href: "/product-lab", label: "Product Lab" },
   { href: "/ai-experiments", label: "AI Experiments" },
   { href: "/writing", label: "Writing" },
   { href: "/playground", label: "Case Studies" },

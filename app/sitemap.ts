@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 import { getAllSlugs } from "@/lib/content";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
-const sections = ["product-lab", "ai-experiments", "writing", "playground"] as const;
+const sections = ["ai-experiments", "writing", "playground"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/product-lab", "/ai-experiments", "/writing", "/playground", "/timeline", "/about"].map(
+  const staticRoutes = ["", "/ai-experiments", "/writing", "/playground", "/timeline", "/about"].map(
     (route) => ({
       url: `${SITE_URL}${route}`,
       lastModified: new Date()

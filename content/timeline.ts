@@ -27,23 +27,20 @@ export const timeline: TimelineItem[] = [
     date: "2022-01-01",
     title: "Joined Wrike as Senior Product Manager",
     description: "Took ownership of the in-product analytics and dashboards domain.",
-    type: "milestone",
-    href: "/product-lab/rebuilding-inproduct-analytics"
+    type: "milestone"
   },
   {
     date: "2020-01-01",
     title: "Joined Emplifi as Product Manager",
     description: "Owned analytics and social listening products end to end.",
-    type: "milestone",
-    href: "/product-lab/social-listening-to-decision-support"
+    type: "milestone"
   },
   {
     date: "2019-06-01",
     title: "Wrapped up Spaceti — Product Innovation Manager",
     description:
       "Introduced agile processes across mobile, desktop and hardware simultaneously.",
-    type: "milestone",
-    href: "/product-lab/agile-for-hardware"
+    type: "milestone"
   },
   {
     date: "2018-01-01",
