@@ -40,9 +40,12 @@ export function Nav() {
                   <span
                     key={link.href}
                     aria-disabled="true"
-                    className="cursor-not-allowed font-mono text-[11px] uppercase tracking-wide text-muted/50 line-through"
+                    className="inline-flex cursor-not-allowed items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-muted/50"
                   >
                     {link.label}
+                    <span className="rounded-full border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-muted/60">
+                      WIP
+                    </span>
                   </span>
                 );
               }
@@ -82,9 +85,12 @@ export function Nav() {
                     <span
                       key={link.href}
                       aria-disabled="true"
-                      className="cursor-not-allowed rounded-md px-2 py-2.5 font-mono text-xs uppercase tracking-wide text-muted/50 line-through"
+                      className="inline-flex cursor-not-allowed items-center gap-1.5 rounded-md px-2 py-2.5 font-mono text-xs uppercase tracking-wide text-muted/50"
                     >
                       {link.label}
+                      <span className="rounded-full border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-muted/60">
+                        WIP
+                      </span>
                     </span>
                   );
                 }
