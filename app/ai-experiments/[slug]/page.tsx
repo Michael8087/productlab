@@ -5,15 +5,15 @@ import { EntryDetail } from "@/components/entry-detail";
 import { EntryHeader } from "@/components/entry-header";
 import { EntryBody } from "@/components/entry-body";
 import { CvTailoringTool } from "@/components/cv-tailoring-tool";
-import { DigitalRealtorTool } from "@/components/digital-realtor-tool";
 
 const DEMO_TOOLS: Record<string, React.ComponentType> = {
-  "cv-tailoring-agent": CvTailoringTool,
-  "digital-realtor": DigitalRealtorTool
+  "cv-tailoring-agent": CvTailoringTool
 };
 
 export function generateStaticParams() {
-  return getAllSlugs("ai-experiments").map((slug) => ({ slug }));
+  return getAllSlugs("ai-experiments")
+    .filter((slug) => !getEntry("ai-experiments", slug)?.link)
+    .map((slug) => ({ slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
@@ -24,7 +24,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function AIExperimentEntryPage({ params }: { params: { slug: string } }) {
   const entry = getEntry("ai-experiments", params.slug);
-  if (!entry) notFound();
+  if (!entry || entry.link) notFound();
 
   const DemoTool = DEMO_TOOLS[params.slug];
   if (DemoTool) {
