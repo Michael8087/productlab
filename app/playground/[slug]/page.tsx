@@ -16,5 +16,5 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function PlaygroundEntryPage({ params }: { params: { slug: string } }) {
   const entry = getEntry("playground", params.slug);
   if (!entry) notFound();
-  return <EntryDetail entry={entry} basePath="/playground" backLabel="Playground" />;
+  return <EntryDetail entry={entry} basePath="/playground" backLabel="Case Studies" />;
 }

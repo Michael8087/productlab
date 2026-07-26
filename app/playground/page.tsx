@@ -3,17 +3,17 @@ import { getEntries } from "@/lib/content";
 import { SectionIndex } from "@/components/section-index";
 
 export const metadata: Metadata = {
-  title: "Playground",
-  description: "Half-finished ideas, crazy concepts, future products, sketches, and vision documents."
+  title: "Case Studies",
+  description: "Speculative product case studies — problem framing, market analysis, and phased roadmaps."
 };
 
 export default function PlaygroundPage() {
   const entries = getEntries("playground");
   return (
     <SectionIndex
-      eyebrow="Playground"
-      title="Ideas that might never ship"
-      description="Half-finished thoughts, product concepts, and sketches — kept here on purpose, before they're polished enough to call finished."
+      eyebrow="Case Studies"
+      title="Speculative product case studies"
+      description="Deep-dive case studies on real products — problem framing, market shift, personas, gap analysis, and a phased roadmap."
       basePath="/playground"
       entries={entries}
     />

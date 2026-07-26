@@ -8,10 +8,9 @@ import { clsx } from "clsx";
 import { Container } from "./container";
 
 const links = [
-  { href: "/product-lab", label: "Product Lab" },
   { href: "/ai-experiments", label: "AI Experiments" },
   { href: "/writing", label: "Writing", disabled: true },
-  { href: "/playground", label: "Playground" },
+  { href: "/playground", label: "Case Studies" },
   { href: "/timeline", label: "Timeline" },
   { href: "/about", label: "About" }
 ];
