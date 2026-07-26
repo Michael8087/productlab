@@ -13,19 +13,15 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-gradient-to-br from-amber-200 via-amber-300 to-amber-400 opacity-30 blur-3xl md:h-[44rem] md:w-[44rem]"
-        />
-        <Container className="relative grid grid-cols-1 items-center gap-8 py-24 md:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+      <section className="border-b border-line">
+        <Container className="grid grid-cols-1 items-center gap-8 py-24 md:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
               Product Lab
             </p>
             <h1 className="mt-5 max-w-2xl font-display text-5xl font-bold tracking-tight text-ink md:text-6xl">
               I find real value,{" "}
-              <span className="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-500 to-violet-500 bg-clip-text text-transparent">
                 then build and ship it.
               </span>
             </h1>

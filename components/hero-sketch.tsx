@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-// Multiply drops the sketch's near-white paper so the hero gradient shows
-// through it; the feathered edges then hide the warm tint the artwork carries
-// in its own background, which would otherwise read as a darker rectangle.
+// The artwork carries its own warm background, so the edges are feathered to
+// stop it reading as a rectangle on the page. Multiply keeps the paper blending
+// with whatever sits behind it rather than punching out a white block.
 const edgeFade =
   "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent)";
 
