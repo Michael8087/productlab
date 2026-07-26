@@ -9,21 +9,11 @@ featured: true
 
 ## Overview
 
-Tailoring a CV per application by hand meant either doing it slowly and well, or fast and generic. The experiment: a Claude skill that drafts a CV in my template from a maintained knowledge base, instead of reinventing my background each time.
+Tailoring a CV by hand meant slow-and-good or fast-and-generic. This Claude skill drafts a CV in my template from a maintained knowledge base, anchoring every version to source documents so "tailored" never drifts into "embellished."
 
-## Architecture
+## How it works
 
-- **A structured knowledge base** of my experience, kept separate from any single CV.
-- **A template-aware generation step** that fills my existing two-column layout.
-- **A tailoring pass** that picks relevant experience per posting without inventing anything.
-- **Output as an actual `.docx`**, ready to send.
-
-## Lessons learned
-
-The hard part wasn't writing, it was constraining it — anchoring every version to fresh source documents mattered more than any prompting trick. A real template to fill also beat a generic prompt: every version actually looked like *my* CV.
-
-## Future improvements
-
-- Learn from interview outcomes which framings actually land.
-- Extend the knowledge base to a cover-letter agent.
-- Add a diff view between the base and tailored CV.
+- **Structured knowledge base** of my experience, kept separate from any single CV.
+- **Template-aware generation** that fills my existing two-column layout.
+- **Per-application tailoring** that picks relevant experience without inventing anything.
+- **Real `.docx` output**, ready to send.
