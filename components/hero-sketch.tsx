@@ -1,137 +1,97 @@
+/**
+ * Hero illustration: an over-the-shoulder view of someone sketching a product
+ * wireframe on paper. The figure is a solid ink silhouette in the foreground,
+ * cropped by the frame, with the work itself in the amber/violet accents used
+ * across the site.
+ */
 export function HeroSketch({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 480 480"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* desk */}
+      <defs>
+        {/* the desk edge fades out rather than hitting the frame */}
+        <linearGradient id="desk-edge" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="480" y2="0">
+          <stop offset="0" stopColor="#0D0D12" stopOpacity="0" />
+          <stop offset="0.2" stopColor="#0D0D12" stopOpacity="1" />
+          <stop offset="0.8" stopColor="#0D0D12" stopOpacity="1" />
+          <stop offset="1" stopColor="#0D0D12" stopOpacity="0" />
+        </linearGradient>
+        <filter id="contact-shadow" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation="9" />
+        </filter>
+      </defs>
+
+      {/* far edge of the desk */}
+      <path d="M0 198 H480" stroke="url(#desk-edge)" strokeWidth="2.5" />
+
+      {/* contact shadow, so the sheet sits on a surface */}
       <path
-        d="M40 372 H440"
+        d="M224 236 L424 222 L450 330 L244 350 Z"
+        fill="#0D0D12"
+        opacity="0.13"
+        filter="url(#contact-shadow)"
+        transform="translate(6 14)"
+      />
+
+      {/* mug, sitting further back on the desk */}
+      <path
+        d="M56 206 h30 v26 a7 7 0 0 1 -7 7 h-16 a7 7 0 0 1 -7 -7 z"
+        fill="#FFFFFF"
         stroke="#0D0D12"
-        strokeWidth="3"
-        strokeLinecap="round"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
       />
       <path
-        d="M64 372 V400 M420 372 V400"
+        d="M86 213 a9 9 0 0 1 0 15"
+        fill="none"
         stroke="#0D0D12"
-        strokeWidth="3"
+        strokeWidth="2.5"
         strokeLinecap="round"
       />
 
-      {/* paper on the desk */}
-      <rect
-        x="96"
-        y="300"
-        width="150"
-        height="106"
-        rx="4"
-        transform="rotate(-4 96 300)"
+      {/* the sheet being drawn on */}
+      <path
+        d="M224 236 L424 222 L450 330 L244 350 Z"
+        fill="#FFFFFF"
         stroke="#0D0D12"
         strokeWidth="2.5"
+        strokeLinejoin="round"
       />
-      {/* sketch lines on the paper — a little dashboard/product doodle */}
-      <g transform="rotate(-4 96 300)" stroke="#D9670A" strokeWidth="2" strokeLinecap="round">
-        <path d="M114 328 H222" />
-        <path d="M114 348 H190" opacity="0.6" />
-        <rect x="114" y="362" width="30" height="26" rx="2" />
-        <rect x="152" y="352" width="30" height="36" rx="2" opacity="0.7" />
-        <rect x="190" y="368" width="30" height="20" rx="2" opacity="0.5" />
+
+      {/* the wireframe sketched on the sheet */}
+      <g transform="rotate(-4 336 278)" strokeLinecap="round" fill="none">
+        <path d="M260 258 H416" stroke="#D9670A" strokeWidth="2.5" />
+        <path d="M260 272 H356" stroke="#D9670A" strokeWidth="2" opacity="0.5" />
+        <rect x="260" y="286" width="42" height="30" stroke="#D9670A" strokeWidth="2" rx="2" />
+        <rect x="312" y="280" width="42" height="36" stroke="#D9670A" strokeWidth="2" rx="2" opacity="0.75" />
+        <rect x="364" y="290" width="42" height="26" stroke="#D9670A" strokeWidth="2" rx="2" opacity="0.5" />
       </g>
-      <circle cx="222" cy="322" r="4" fill="#7433E0" />
+      <circle cx="432" cy="236" r="4.5" fill="#7433E0" />
 
-      {/* pencil */}
+      {/* figure, seen over the shoulder and cropped by the frame */}
       <path
-        d="M188 296 L246 254"
-        stroke="#0D0D12"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M246 254 L258 246"
-        stroke="#D9670A"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-
-      {/* chair back, suggested with a simple line */}
-      <path
-        d="M330 250 V352"
-        stroke="#0D0D12"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        opacity="0.35"
+        d="M100 480
+           C 103 446, 112 422, 134 408
+           C 148 400, 157 386, 159 372
+           C 139 350, 143 302, 179 288
+           C 213 274, 249 298, 247 336
+           C 246 358, 235 374, 223 382
+           C 234 392, 250 398, 266 398
+           C 298 382, 328 350, 352 314
+           C 362 306, 374 314, 368 326
+           C 344 360, 314 394, 292 430
+           C 300 450, 304 466, 306 480
+           Z"
+        fill="#0D0D12"
       />
 
-      {/* figure: seated, leaning over the desk, sketching */}
-      {/* torso + leather jacket collar */}
-      <path
-        d="M258 372
-           C 256 330, 268 300, 300 288
-           C 322 280, 340 286, 348 306
-           C 354 322, 350 350, 344 372"
-        stroke="#0D0D12"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      {/* jacket zip line */}
-      <path
-        d="M304 300 L296 372"
-        stroke="#0D0D12"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity="0.5"
-      />
-
-      {/* near arm, reaching down to the pencil */}
-      <path
-        d="M300 292 C 274 292, 244 296, 200 302"
-        stroke="#0D0D12"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      {/* neck */}
-      <path d="M314 264 C 312 272, 310 280, 308 288" stroke="#0D0D12" strokeWidth="3" strokeLinecap="round" />
-
-      {/* head, tilted down toward the paper */}
-      <circle cx="322" cy="236" r="34" stroke="#0D0D12" strokeWidth="3" />
-
-      {/* short hair */}
-      <path
-        d="M290 224
-           C 292 200, 312 190, 328 192
-           C 346 194, 356 206, 354 222"
-        stroke="#0D0D12"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-
-      {/* glasses */}
-      <rect x="296" y="238" width="22" height="16" rx="4" stroke="#0D0D12" strokeWidth="2.5" />
-      <rect x="326" y="238" width="22" height="16" rx="4" stroke="#0D0D12" strokeWidth="2.5" />
-      <path d="M318 244 H326" stroke="#0D0D12" strokeWidth="2.5" />
-      <path d="M296 244 L286 240" stroke="#0D0D12" strokeWidth="2.5" strokeLinecap="round" />
-
-      {/* beard */}
-      <path
-        d="M300 252 C 302 274, 314 286, 324 286 C 334 286, 344 276, 348 254"
-        stroke="#0D0D12"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-
-      {/* dashed measuring / thinking lines around the sketch — small "building" motif */}
-      <g stroke="#7433E0" strokeWidth="1.5" strokeDasharray="4 5" opacity="0.55">
-        <path d="M96 262 H246" />
-        <path d="M262 214 V300" />
-      </g>
-
-      {/* small accent nodes, echoing dashboards/AI product work */}
-      <circle cx="96" cy="262" r="3.5" fill="#D9670A" />
-      <circle cx="246" cy="262" r="3.5" fill="#7433E0" />
-      <circle cx="262" cy="214" r="3.5" fill="#D9670A" />
+      {/* pencil, carrying the line of the arm down onto the sheet */}
+      <path d="M364 322 L340 304" stroke="#0D0D12" strokeWidth="5.5" strokeLinecap="round" />
+      <path d="M340 304 L328 295" stroke="#D9670A" strokeWidth="5.5" strokeLinecap="round" />
     </svg>
   );
 }
