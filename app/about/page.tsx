@@ -18,11 +18,7 @@ export default function AboutPage() {
           Michael Miňovský
         </h1>
         <p className="mt-6 text-[17px] leading-relaxed text-ink-soft">
-          I build analytics platforms, dashboards, and AI-enhanced products —
-          the kind that quietly change what a few thousand people do with
-          their Monday morning, rather than the kind that make a good demo.
-          I&apos;m a Senior Product Manager by title, but the actual job is turning
-          ambiguous problems into things that ship and hold up under real use.
+          I build technical platforms, AI-powered products, dashboards and more.
         </p>
       </Reveal>
 
@@ -52,8 +48,8 @@ export default function AboutPage() {
         <h2 className="font-display text-lg font-medium text-ink">Background, briefly</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
           MA Economics &amp; Policy (UCL), MSc Smart Building Control (ČVUT),
-          Robotics undergraduate studies — 2 years (ČVUT), BA Sociology &amp;
-          Economics (Charles University). Product roles spanning hardware,
+          BA Sociology &amp; Economics (Charles University), Robotics
+          undergraduate studies (ČVUT). Product roles spanning hardware,
           social analytics, and enterprise SaaS.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
