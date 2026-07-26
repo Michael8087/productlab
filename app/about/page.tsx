@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
@@ -12,15 +13,28 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Container narrow className="py-20 md:py-28">
-      <Reveal>
-        <p className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-          About
-        </p>
-        <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-          Michael Miňovský
-        </h1>
-        <p className="mt-6 text-[17px] leading-relaxed text-ink-soft">
+      <Reveal className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        <Image
+          src="/michael.jpg"
+          alt="Michael Miňovský"
+          width={112}
+          height={112}
+          className="h-28 w-28 shrink-0 rounded-full border-2 border-amber-200 object-cover shadow-lg shadow-amber-500/10"
+          priority
+        />
+        <div>
+          <p className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+            About
+          </p>
+          <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+            Michael Miňovský
+          </h1>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.03} className="mt-6">
+        <p className="text-[17px] leading-relaxed text-ink-soft">
           I build technical platforms, AI-powered products, dashboards and more.
           I&apos;m a Senior Product Manager by title, but the actual job is turning
           ambiguous problems into things that ship and hold up under real use.
