@@ -10,7 +10,7 @@ import { Container } from "./container";
 const links = [
   { href: "/ai-experiments", label: "AI Experiments" },
   { href: "/writing", label: "Writing", disabled: true },
-  { href: "/playground", label: "Case Studies" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/about", label: "About" }
 ];
 

@@ -8,7 +8,7 @@ import { Reveal } from "@/components/reveal";
 
 export default function HomePage() {
   const latestExperiments = getLatest("ai-experiments", 2);
-  const latestCaseStudies = getLatest("playground", 2);
+  const latestCaseStudies = getLatest("case-studies", 2);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function HomePage() {
                 <div className="flex items-end justify-between gap-6">
                   <SectionHeading eyebrow="Fresh" title="Latest case studies" />
                   <Link
-                    href="/playground"
+                    href="/case-studies"
                     className="hidden shrink-0 font-mono text-xs uppercase tracking-wide text-muted hover:text-ink md:block"
                   >
                     All →
@@ -87,7 +87,7 @@ export default function HomePage() {
                 {latestCaseStudies.map((entry, i) => (
                   <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)}>
                     <EntryCard
-                      href={entry.link ?? `/playground/${entry.slug}`}
+                      href={entry.link ?? `/case-studies/${entry.slug}`}
                       external={Boolean(entry.link)}
                       eyebrow={entry.status}
                       title={entry.title}
