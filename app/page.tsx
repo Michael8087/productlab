@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { EntryCard } from "@/components/entry-card";
 import { Reveal } from "@/components/reveal";
+import { HeroSketch } from "@/components/hero-sketch";
 
 export default function HomePage() {
   const latestExperiments = getLatest("ai-experiments", 2);
@@ -17,7 +18,7 @@ export default function HomePage() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-violet-400 opacity-25 blur-3xl md:h-[44rem] md:w-[44rem]"
         />
-        <Container className="relative py-24 md:py-32">
+        <Container className="relative grid grid-cols-1 items-center gap-8 py-24 md:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
               Product Lab
@@ -43,6 +44,10 @@ export default function HomePage() {
                 <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
+          </Reveal>
+
+          <Reveal delay={0.1} className="hidden lg:block">
+            <HeroSketch className="mx-auto w-full max-w-md" />
           </Reveal>
         </Container>
       </section>
