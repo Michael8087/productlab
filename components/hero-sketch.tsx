@@ -1,11 +1,8 @@
 import Image from "next/image";
 
-// The artwork carries its own warm background, so the edges are feathered to
-// stop it reading as a rectangle on the page. Multiply keeps the paper blending
-// with whatever sits behind it rather than punching out a white block.
-const edgeFade =
-  "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent)";
-
+// The artwork ships with a warm tinted paper baked in. Desaturating it and
+// lifting the highlights pushes that paper to white, and multiply then drops
+// the white entirely, so the drawing sits on the page with no visible edges.
 export function HeroSketch({ className }: { className?: string }) {
   return (
     <Image
@@ -16,11 +13,8 @@ export function HeroSketch({ className }: { className?: string }) {
       priority
       className={className}
       style={{
-        mixBlendMode: "multiply",
-        maskImage: edgeFade,
-        maskComposite: "intersect",
-        WebkitMaskImage: edgeFade,
-        WebkitMaskComposite: "source-in"
+        filter: "grayscale(1) contrast(1.06) brightness(1.12)",
+        mixBlendMode: "multiply"
       }}
     />
   );
