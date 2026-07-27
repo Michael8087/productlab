@@ -32,7 +32,11 @@ export function getEntries(section: Section, { includeDrafts = false } = {}): En
     .map((f) => readEntry(section, f))
     .filter((e) => includeDrafts || !e.draft);
 
-  return entries.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Newest first. Entries sharing a date fall back to slug so the order is
+  // stable — the old comparator never returned 0, which left ties arbitrary.
+  return entries.sort(
+    (a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug)
+  );
 }
 
 export function getEntry(section: Section, slug: string): Entry | null {
