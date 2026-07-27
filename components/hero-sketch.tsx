@@ -1,8 +1,10 @@
 import Image from "next/image";
 
-// The artwork ships with a warm tinted paper baked in. Desaturating it and
-// lifting the highlights pushes that paper to white, and multiply then drops
-// the white entirely, so the drawing sits on the page with no visible edges.
+// The paper the sketch was drawn on is baked into the file's alpha channel now
+// — only the pencil itself carries any opacity — so the drawing sits straight
+// on the page with no rectangle showing, whatever is behind it. Filters and
+// blend modes are deliberately absent: multiply was a no-op inside the
+// animated wrapper's stacking context, which is what left the box visible.
 export function HeroSketch({ className }: { className?: string }) {
   return (
     <Image
@@ -12,10 +14,6 @@ export function HeroSketch({ className }: { className?: string }) {
       height={662}
       priority
       className={className}
-      style={{
-        filter: "grayscale(1) contrast(1.06) brightness(1.12)",
-        mixBlendMode: "multiply"
-      }}
     />
   );
 }
