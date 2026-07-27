@@ -51,7 +51,7 @@ export default function HomePage() {
       <section className="border-t border-line bg-mist/50">
         <Container className="py-20 md:py-28">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-            <div>
+            <div className="flex flex-col">
               <Reveal>
                 <div className="flex items-end justify-between gap-6">
                   <SectionHeading eyebrow="Fresh" title="Latest experiments" />
@@ -63,9 +63,9 @@ export default function HomePage() {
                   </Link>
                 </div>
               </Reveal>
-              <div className="mt-8 space-y-4">
+              <div className="mt-8 grid flex-1 auto-rows-fr gap-4">
                 {latestExperiments.map((entry, i) => (
-                  <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)}>
+                  <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)} className="h-full">
                     <EntryCard
                       href={entry.link ?? `/ai-experiments/${entry.slug}`}
                       external={Boolean(entry.link)}
@@ -79,7 +79,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col">
               <Reveal>
                 <div className="flex items-end justify-between gap-6">
                   <SectionHeading eyebrow="Fresh" title="Latest case studies" />
@@ -91,9 +91,9 @@ export default function HomePage() {
                   </Link>
                 </div>
               </Reveal>
-              <div className="mt-8 space-y-4">
+              <div className="mt-8 grid flex-1 auto-rows-fr gap-4">
                 {latestCaseStudies.map((entry, i) => (
-                  <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)}>
+                  <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)} className="h-full">
                     <EntryCard
                       href={entry.link ?? `/case-studies/${entry.slug}`}
                       external={Boolean(entry.link)}
