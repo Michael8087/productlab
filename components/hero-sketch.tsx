@@ -5,10 +5,12 @@ import Image from "next/image";
 // on the page with no rectangle showing, whatever is behind it. Filters and
 // blend modes are deliberately absent: multiply was a no-op inside the
 // animated wrapper's stacking context, which is what left the box visible.
+// The file name carries the "-transparent" suffix so browsers and the image
+// optimizer can't keep serving the old opaque bytes from cache.
 export function HeroSketch({ className }: { className?: string }) {
   return (
     <Image
-      src="/hero-sketch.png"
+      src="/hero-sketch-transparent.png"
       alt="A pencil sketch of someone at a desk, laying out a product flow from problem and users through to MVP and iteration"
       width={820}
       height={662}
