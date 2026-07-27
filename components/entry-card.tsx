@@ -68,8 +68,14 @@ export function EntryCard({
     "group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/10";
 
   if (external) {
+    // Confidential entries get nofollow so crawlers don't index the destination.
+    // The URL still sits in the page source — only the destination's own access
+    // control keeps the contents private.
+    const rel = confidential
+      ? "noopener noreferrer nofollow"
+      : "noopener noreferrer";
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      <a href={href} target="_blank" rel={rel} className={className}>
         {content}
       </a>
     );
