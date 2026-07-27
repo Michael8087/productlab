@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-line">
+      <section className="border-b border-line bg-mist">
         <Container className="grid grid-cols-1 items-center gap-8 py-16 md:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wide text-amber-600">
@@ -48,7 +48,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-mist/50">
+      <section className="border-t border-line bg-mist">
         <Container className="py-20 md:py-28">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
             <div className="flex flex-col">
