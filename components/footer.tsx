@@ -45,7 +45,7 @@ export function Footer() {
                 <span
                   key={link.href}
                   aria-disabled="true"
-                  className="inline-flex cursor-not-allowed items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-muted/50"
+                  className="inline-flex cursor-not-allowed items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-muted/50"
                 >
                   {link.label}
                   <span className="rounded-full border border-line px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-muted/60">
