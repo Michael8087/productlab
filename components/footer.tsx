@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Github } from "lucide-react";
 import { Container } from "./container";
 
 const links = [
@@ -19,12 +20,23 @@ export function Footer() {
               A working notebook of products, experiments and ideas — kept in the
               open so it stays honest about what worked and what didn&apos;t.
             </p>
-            <a
-              href="mailto:mike.minovsky@gmail.com"
-              className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wide text-amber-600 hover:text-violet-600"
-            >
-              mike.minovsky@gmail.com
-            </a>
+            <div className="mt-4 flex flex-col items-start gap-2">
+              <a
+                href="mailto:mike.minovsky@gmail.com"
+                className="font-mono text-xs font-semibold uppercase tracking-wide text-amber-600 hover:text-violet-600"
+              >
+                mike.minovsky@gmail.com
+              </a>
+              <a
+                href="https://github.com/Michael8087"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600"
+              >
+                <Github size={14} />
+                github.com/Michael8087
+              </a>
+            </div>
           </div>
 
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2 md:flex md:flex-col md:items-end">
