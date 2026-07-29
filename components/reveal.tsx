@@ -16,10 +16,12 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      // Grow the observed area 240px past the bottom of the viewport so a card
-      // has finished appearing by the time it is actually scrolled into view.
-      viewport={{ once: true, margin: "0px 0px 240px 0px" }}
-      transition={{ duration: 0.35, delay, ease: [0.16, 1, 0.3, 1] }}
+      // No margin: the animation starts the instant any part of the card
+      // crosses into the viewport, rather than waiting until it's mostly (or
+      // fully) on screen — a positive margin here pre-triggers it before the
+      // card is visible at all, which reads as "no animation."
+      viewport={{ once: true, margin: "0px" }}
+      transition={{ duration: 0.45, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}

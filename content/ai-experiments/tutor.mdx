@@ -1,0 +1,23 @@
+---
+title: "Tutor — a bilingual word game for a toddler"
+summary: "The tutor speaks a word in Czech, then English — draw a card, say it back, and if a small Cloudflare Worker judges Claude's ear satisfied, it's yours. An hourglass pulls won cards back for a pop quiz."
+date: "2026-07-29"
+status: "In Development"
+tags: ["Claude", "Personal", "Game"]
+---
+
+## Overview
+
+A bilingual English tutor for a very young child, built as a bag-of-cards game rather than a quiz screen. The tutor speaks a word — Czech, then English — you draw a card from the bag, and you say the English word back out loud. Get it right and it joins your collection on a little desk at the bottom of the screen; get it wrong three times and it falls back into the bag. An hourglass quietly runs down every minute and, when it empties, pulls a random card you've already won back out for a pop quiz — say it again or lose it.
+
+## How it works
+
+- **Three levels**, following Cambridge's Pre-A1 Starters syllabus order: single vocabulary words, then a simple "I like/have + noun" sentence pattern, then fuller descriptive sentences with prepositions of place, each unfurling into a small animated canvas scene.
+- **Speech in both directions** — the Web Speech API for text-to-speech (Czech, then English) and for listening to the child's attempt.
+- **A judgment call, not string matching** — a small Cloudflare Worker sends what the recognizer heard plus the target word to Claude Haiku and asks whether it's a reasonable attempt for a 3.5-year-old. Both a toddler's pronunciation and the recognizer's mishearing of it are too messy for fixed rules, and the judgment deliberately favours the child.
+- **Graceful fallback** — no speech recognition support falls back to a manual ✅/❌ confirm; no reachable Worker falls back to local fuzzy string matching, so the game still works offline, just less forgiving.
+- The collection persists to `localStorage`, per level.
+
+## Status
+
+Still in development — the core game (three levels, the bag, the desk, the hourglass) is playable locally; the judging Worker needs a deploy step with its own API key before this can go live anywhere.
