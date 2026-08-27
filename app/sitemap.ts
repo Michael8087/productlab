@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs } from "@/lib/content";
+import { getEntries } from "@/lib/content";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 const sections = ["ai-experiments", "writing", "case-studies"] as const;
@@ -12,11 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  // Entries with a `link` have no internal page (they redirect out), and
+  // confidential entries have no page at all — neither belongs in the sitemap.
   const entryRoutes = sections.flatMap((section) =>
-    getAllSlugs(section).map((slug) => ({
-      url: `${SITE_URL}/${section}/${slug}`,
-      lastModified: new Date()
-    }))
+    getEntries(section)
+      .filter((entry) => !entry.link && !entry.confidential)
+      .map((entry) => ({
+        url: `${SITE_URL}/${section}/${entry.slug}`,
+        lastModified: new Date()
+      }))
   );
 
   return [...staticRoutes, ...entryRoutes];

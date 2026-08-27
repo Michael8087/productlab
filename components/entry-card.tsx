@@ -12,7 +12,7 @@ export function EntryCard({
   external = false,
   confidential = false
 }: {
-  href: string;
+  href?: string;
   eyebrow?: string;
   title: string;
   summary: string;
@@ -20,12 +20,16 @@ export function EntryCard({
   external?: boolean;
   confidential?: boolean;
 }) {
+  const isLinked = Boolean(href);
+
   const content = (
     <>
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-to-r from-amber-400 to-violet-400 transition-transform duration-200 group-hover:scale-x-100"
-      />
+      {isLinked ? (
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-to-r from-amber-400 to-violet-400 transition-transform duration-200 group-hover:scale-x-100"
+        />
+      ) : null}
       <div className="flex-1">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -38,10 +42,12 @@ export function EntryCard({
               {title}
             </h3>
           </div>
-          <ArrowUpRight
-            size={18}
-            className="mt-1 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-600"
-          />
+          {isLinked ? (
+            <ArrowUpRight
+              size={18}
+              className="mt-1 shrink-0 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-600"
+            />
+          ) : null}
         </div>
 
         {confidential ? (
@@ -64,8 +70,16 @@ export function EntryCard({
     </>
   );
 
-  const className =
-    "group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/10";
+  const baseClassName =
+    "relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper p-6";
+
+  if (!isLinked) {
+    // No destination — a stealth-mode card that isn't ready to link anywhere
+    // yet. Rendered inert on purpose: no hover affordance, no click target.
+    return <div className={baseClassName}>{content}</div>;
+  }
+
+  const linkedClassName = `group ${baseClassName} transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/10`;
 
   if (external) {
     // Confidential entries get nofollow so crawlers don't index the destination.
@@ -75,14 +89,14 @@ export function EntryCard({
       ? "noopener noreferrer nofollow"
       : "noopener noreferrer";
     return (
-      <a href={href} target="_blank" rel={rel} className={className}>
+      <a href={href} target="_blank" rel={rel} className={linkedClassName}>
         {content}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={className}>
+    <Link href={href!} className={linkedClassName}>
       {content}
     </Link>
   );

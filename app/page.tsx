@@ -67,7 +67,7 @@ export default function HomePage() {
                 {latestExperiments.map((entry, i) => (
                   <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)} className="h-full">
                     <EntryCard
-                      href={entry.link ?? `/ai-experiments/${entry.slug}`}
+                      href={entry.link ?? (entry.confidential ? undefined : `/ai-experiments/${entry.slug}`)}
                       external={Boolean(entry.link)}
                       eyebrow={entry.status}
                       title={entry.title}
@@ -96,7 +96,7 @@ export default function HomePage() {
                 {latestCaseStudies.map((entry, i) => (
                   <Reveal key={entry.slug} delay={Math.min(i * 0.06, 0.2)} className="h-full">
                     <EntryCard
-                      href={entry.link ?? `/case-studies/${entry.slug}`}
+                      href={entry.link ?? (entry.confidential ? undefined : `/case-studies/${entry.slug}`)}
                       external={Boolean(entry.link)}
                       eyebrow={entry.status}
                       title={entry.title}

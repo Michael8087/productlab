@@ -28,7 +28,7 @@ export function SectionIndex({
         {entries.map((entry, i) => (
           <Reveal key={entry.slug} delay={Math.min(i * 0.04, 0.12)} className="h-full">
             <EntryCard
-              href={entry.link ?? `${basePath}/${entry.slug}`}
+              href={entry.link ?? (entry.confidential ? undefined : `${basePath}/${entry.slug}`)}
               external={Boolean(entry.link)}
               eyebrow={entry.status ?? entry.period}
               title={entry.title}

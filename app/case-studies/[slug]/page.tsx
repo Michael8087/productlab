@@ -5,18 +5,21 @@ import { EntryDetail } from "@/components/entry-detail";
 
 export function generateStaticParams() {
   return getAllSlugs("case-studies")
-    .filter((slug) => !getEntry("case-studies", slug)?.link)
+    .filter((slug) => {
+      const entry = getEntry("case-studies", slug);
+      return entry && !entry.link && !entry.confidential;
+    })
     .map((slug) => ({ slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const entry = getEntry("case-studies", params.slug);
-  if (!entry || entry.link) return {};
+  if (!entry || entry.link || entry.confidential) return {};
   return { title: entry.title, description: entry.summary };
 }
 
 export default function CaseStudyEntryPage({ params }: { params: { slug: string } }) {
   const entry = getEntry("case-studies", params.slug);
-  if (!entry || entry.link) notFound();
+  if (!entry || entry.link || entry.confidential) notFound();
   return <EntryDetail entry={entry} basePath="/case-studies" backLabel="Case Studies" />;
 }
