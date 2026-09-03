@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   images: {
-    formats: ["image/avif", "image/webp"]
+    // Static export has no server to run Next's on-demand image optimizer,
+    // so images are served as-is (already reasonably sized source files).
+    unoptimized: true
   }
 };
 

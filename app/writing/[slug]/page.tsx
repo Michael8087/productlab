@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getAllSlugs, getEntry } from "@/lib/content";
 import { EntryDetail } from "@/components/entry-detail";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getAllSlugs("writing").map((slug) => ({ slug }));
 }
