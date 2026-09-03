@@ -28,8 +28,8 @@ export default function HomePage() {
             <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
               Michael Miňovský — Senior Product Manager working on analytics,
               complex products, and AI-powered ones. This is a working notebook,
-              not a résumé: case studies, AI experiments, writing, and the
-              half-finished ideas in between.
+              not a résumé: product explorations, AI experiments, writing, and
+              the half-finished ideas in between.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
@@ -83,7 +83,7 @@ export default function HomePage() {
             <div className="flex flex-col">
               <Reveal>
                 <div className="flex items-end justify-between gap-6">
-                  <SectionHeading eyebrow="Fresh" title="Latest case studies" />
+                  <SectionHeading eyebrow="Fresh" title="Latest product explorations" />
                   <Link
                     href="/case-studies"
                     className="hidden shrink-0 font-mono text-xs font-semibold uppercase tracking-wide text-muted hover:text-amber-600 md:block"

@@ -21,5 +21,5 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function CaseStudyEntryPage({ params }: { params: { slug: string } }) {
   const entry = getEntry("case-studies", params.slug);
   if (!entry || entry.link || entry.confidential) notFound();
-  return <EntryDetail entry={entry} basePath="/case-studies" backLabel="Case Studies" />;
+  return <EntryDetail entry={entry} basePath="/case-studies" backLabel="Product Explorations" />;
 }

@@ -1,0 +1,22 @@
+---
+title: "Toggl 2.0 — closing the Estimate/Planned/Logged loop"
+summary: "A product case study for Toggl 2.0: it already ships Estimate, Planned and Logged fields on every task, but Planned almost never gets filled in by hand. This prototype doesn't add a field — it fills in the one that's already there, from day one, with no tracking history required."
+date: "2026-09-03"
+status: "Prototype"
+tags: ["Product strategy", "Case study", "Time tracking"]
+link: "https://michael8087.github.io/toggl-time-intelligence/"
+---
+
+A speculative product case study for **Toggl 2.0** (working name Toggl Focus), aimed at the individual contributor / freelancer experience.
+
+## The problem
+
+Toggl 2.0 already promises freelancers it will "build a time history that makes every future estimate smarter" — but the Planned field sits empty in practice, because filling it means hand-entering blocks against a calendar, an upstream dependency, and a deadline all at once. The loop never closes: Estimate is a guess nobody checks, Planned stays blank, and Logged only ever becomes an invoice.
+
+This prototype doesn't add a field. It fills in the one that's already there — task intake → intelligent estimate → capacity check → automatic scheduling → automatic tracking → actual vs. plan → a sharper next estimate — on the two screens that already exist: the task detail panel and the Timer split view.
+
+## The day-one constraint
+
+First-week retention is treated as a hard constraint, which rules out anything that needs months of personal history. The estimate leans on the client's existing project data and is honest about its own uncertainty (a 7–15h range at low confidence, not a false-precise number); the capacity check and scheduler need no history at all — that's the day-one value. Personal history sharpens the estimate by Friday; it isn't the price of entry.
+
+[View the prototype ↗](https://michael8087.github.io/toggl-time-intelligence/)
