@@ -1,0 +1,29 @@
+---
+title: "AI Incident Investigator"
+summary: "A SOC analyst console — paste a raw security alert and get a full investigation back: severity, MITRE ATT&CK mapping, a reconstructed timeline, evidence gaps, ranked hypotheses, and an analyst report."
+date: "2026-09-03"
+status: "Shipped"
+tags: ["Security", "SOC", "Dashboard"]
+link: "https://ai-incident-investigator.mike-minovsky.workers.dev/"
+---
+
+## Overview
+
+A one-line security alert — "PowerShell executed an encoded command from LAPTOP-154" — is the start of an investigation, not the end of one. A SOC analyst has to turn that into a severity call, a technique mapping, a list of what to check next, and eventually a report someone else can act on. This tool does that triage pass automatically: paste or upload an alert, and it comes back with an Incident Overview, a reconstructed AI Timeline, technical Findings, a Risk Score, an Evidence checklist, Recommended Actions, a MITRE ATT&CK Mapping, ranked AI Reasoning (hypotheses), and both an executive summary and a full Analyst Report.
+
+## How it works
+
+- **A rule-based analysis engine**, not a live LLM call — the alert text is parsed against ~20 attack-technique patterns (encoded PowerShell, LOLBins, credential dumping, lateral movement, ransomware indicators, phishing, C2 tooling, and more), each mapped to a MITRE ATT&CK technique.
+- **Entity extraction** for hosts, users, IPs, and processes straight out of the alert text, used to personalize the timeline and recommended actions.
+- **Category-based severity floors** on top of weighted scoring, so a chain like credential dumping + lateral movement reads as critical even if no single indicator alone would push the score that high.
+- **A missing-evidence checklist** — ten standard SOC evidence items (process tree, script-block logging, EDR timeline, DNS logs, auth logs, memory capture, etc.) checked against what the alert actually mentions, so gaps are explicit rather than assumed.
+- **Everything runs client-side.** No API key, no login, no data leaves the browser — the "AI" is a deterministic engine tuned to sound like one, which keeps the demo fully self-contained.
+
+## Design
+
+Dark, enterprise SOC aesthetic in the spirit of CrowdStrike, Wiz, and Palo Alto — severity-coded badges, a radial risk gauge, a scanning "analyzing" animation, and a monospace analyst-report view built for copy-paste into a ticket.
+
+## Future improvements
+
+- Swap the heuristic engine for a real Claude call (server-side, same pattern as Digital Realtor and the CV Tailoring Agent) so the reasoning generalizes beyond the pattern library.
+- Add a case history so multiple alerts can be triaged and compared in one session.
