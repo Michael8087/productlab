@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Hammer, Menu, X } from "lucide-react";
 import { clsx } from "clsx";
 import { Container } from "./container";
 
@@ -24,10 +24,11 @@ export function Nav() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="font-display text-[15px] font-bold tracking-tight text-ink"
+            className="flex items-center gap-1.5 font-display text-[15px] font-bold tracking-tight text-ink"
             onClick={() => setOpen(false)}
           >
-            Product Lab
+            <Hammer size={16} className="text-amber-600" />
+            Mike Builds Things & Thinks
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
