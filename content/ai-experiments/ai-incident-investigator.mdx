@@ -1,29 +1,33 @@
 ---
 title: "AI Incident Investigator"
-summary: "A SOC analyst console — paste a raw security alert and get a full investigation back: severity, MITRE ATT&CK mapping, a reconstructed timeline, evidence gaps, ranked hypotheses, and an analyst report."
+summary: "A multi-incident SOC command center — a live alert queue, a SentinelOne-style Storyline correlation graph, simulated threat intel and SOAR response actions, and a Claude-backed AI copilot chat scoped to each investigation."
 date: "2026-09-03"
 status: "Shipped"
-tags: ["Security", "SOC", "Dashboard"]
+tags: ["Security", "SOC", "SOAR", "Claude"]
 link: "https://ai-incident-investigator.mike-minovsky.workers.dev/"
 ---
 
 ## Overview
 
-A one-line security alert — "PowerShell executed an encoded command from LAPTOP-154" — is the start of an investigation, not the end of one. A SOC analyst has to turn that into a severity call, a technique mapping, a list of what to check next, and eventually a report someone else can act on. This tool does that triage pass automatically: paste or upload an alert, and it comes back with an Incident Overview, a reconstructed AI Timeline, technical Findings, a Risk Score, an Evidence checklist, Recommended Actions, a MITRE ATT&CK Mapping, ranked AI Reasoning (hypotheses), and both an executive summary and a full Analyst Report.
+Started as a single-alert triage tool — paste an alert, get severity, MITRE mapping, and a report back. It grew into a full SOC command center: a live incident queue instead of one form, a process/network correlation graph in the style of SentinelOne's Storyline, simulated threat-intel enrichment, executable SOAR response actions with an animated mock execution log, and an AI copilot chat that answers questions grounded in the specific incident on screen.
 
 ## How it works
 
-- **A rule-based analysis engine**, not a live LLM call — the alert text is parsed against ~20 attack-technique patterns (encoded PowerShell, LOLBins, credential dumping, lateral movement, ransomware indicators, phishing, C2 tooling, and more), each mapped to a MITRE ATT&CK technique.
-- **Entity extraction** for hosts, users, IPs, and processes straight out of the alert text, used to personalize the timeline and recommended actions.
-- **Category-based severity floors** on top of weighted scoring, so a chain like credential dumping + lateral movement reads as critical even if no single indicator alone would push the score that high.
-- **A missing-evidence checklist** — ten standard SOC evidence items (process tree, script-block logging, EDR timeline, DNS logs, auth logs, memory capture, etc.) checked against what the alert actually mentions, so gaps are explicit rather than assumed.
-- **Everything runs client-side.** No API key, no login, no data leaves the browser — the "AI" is a deterministic engine tuned to sound like one, which keeps the demo fully self-contained.
+- **A multi-incident queue**, not a single form — a simulated live feed injects new alerts on an interval, each auto-triaged the moment it lands, with status tracking (new → investigating → resolved) and a KPI strip (open incidents, critical today, assets monitored, avg. time to triage).
+- **A rule-based analysis engine** parses each alert against ~20 attack-technique patterns (encoded PowerShell, LOLBins, credential dumping, lateral movement, cloud IAM privilege escalation, ransomware, phishing, C2 tooling, and more), each mapped to a MITRE ATT&CK technique, with category-based severity floors so attack chains score correctly even when no single indicator would.
+- **Storyline** — a derived process/network correlation graph (user → host → process → credential/network/persistence branches → alert), rendered as an SVG node graph, the same shape as SentinelOne's own Storyline feature.
+- **Simulated threat intelligence**: deterministic mock reputation lookups (malicious score, geo, ASN, malware-family tags) for every extracted IP and process, both per-incident and aggregated fleet-wide on its own Threat Intel view — clearly labeled as demo data throughout.
+- **Automated Response (SOAR)** — isolate host, kill process, block indicator, force credential reset, and more, each an "Execute" button with a staggered, EDR-agent-style mock log. A Playbooks view documents the trigger conditions and steps behind each one.
+- **An AI Reasoning Trace** renders the engine's own pipeline (parse → extract → match → correlate → score → hypothesize → synthesize) as a step-by-step, chain-of-thought-style explanation grounded entirely in that incident's real numbers.
+- **An AI Copilot chat**, scoped to the selected incident, backed by a real Cloudflare Worker route that calls Claude (Haiku) with the full analysis object as grounding context — and a fully-functional local heuristic responder as the default/fallback, so the chat works with zero configuration and upgrades automatically the moment `wrangler secret put ANTHROPIC_API_KEY` is set.
+- **No login, still mostly client-side** — the only network call the app ever makes is the optional copilot request; everything else, including the entire analysis engine, runs in the browser.
 
 ## Design
 
-Dark, enterprise SOC aesthetic in the spirit of CrowdStrike, Wiz, and Palo Alto — severity-coded badges, a radial risk gauge, a scanning "analyzing" animation, and a monospace analyst-report view built for copy-paste into a ticket.
+Dark, enterprise SOC aesthetic in the spirit of CrowdStrike, Wiz, Exaforce, and SentinelOne itself — a fixed console shell (sidebar nav, pinned KPI bar, sticky queue and copilot panels either side of a scrolling investigation feed), severity-coded badges, a radial risk gauge, and a monospace analyst-report view built for copy-paste into a ticket.
 
 ## Future improvements
 
-- Swap the heuristic engine for a real Claude call (server-side, same pattern as Digital Realtor and the CV Tailoring Agent) so the reasoning generalizes beyond the pattern library.
-- Add a case history so multiple alerts can be triaged and compared in one session.
+- Persist the queue (and resolved history) so triage state survives a refresh.
+- Let the copilot take actions directly ("isolate this host") instead of only answering questions.
+- Real threat-intel API integration behind the same enrichment UI, swapping the simulated lookups for a live feed.
