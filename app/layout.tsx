@@ -9,22 +9,22 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Product Lab — Michael Miňovský",
-    template: "%s — Product Lab"
+    default: "Mike Builds Things & Thinks — Michael Miňovský",
+    template: "%s — Mike Builds Things & Thinks"
   },
   description:
     "A working notebook of products, AI experiments and ideas by Michael Miňovský, Senior Product Manager focused on analytics, dashboards and AI-enhanced products.",
   openGraph: {
-    title: "Product Lab — Michael Miňovský",
+    title: "Mike Builds Things & Thinks — Michael Miňovský",
     description:
       "A working notebook of products, AI experiments and ideas by Michael Miňovský.",
     url: SITE_URL,
-    siteName: "Product Lab",
+    siteName: "Mike Builds Things & Thinks",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Product Lab — Michael Miňovský",
+    title: "Mike Builds Things & Thinks — Michael Miňovský",
     description:
       "A working notebook of products, AI experiments and ideas by Michael Miňovský."
   },

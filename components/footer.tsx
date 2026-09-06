@@ -15,7 +15,7 @@ export function Footer() {
       <Container>
         <div className="flex flex-col gap-10 py-14 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <p className="font-display text-[15px] font-bold text-ink">Product Lab</p>
+            <p className="font-display text-[15px] font-bold text-ink">Mike Builds Things & Thinks</p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               A working notebook of products, experiments and ideas — kept in the
               open so it stays honest about what worked and what didn&apos;t.
