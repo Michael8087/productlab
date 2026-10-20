@@ -4,7 +4,9 @@ import type { MDXComponents } from "mdx/types";
 
 export const mdxComponents: MDXComponents = {
   a: ({ href = "", children, ...props }) => {
-    const isInternal = href.startsWith("/") || href.startsWith("#");
+    // target="_blank" on a site-relative href means a static file (a demo or
+    // image under public/), not a page route — keep it out of next/link.
+    const isInternal = (href.startsWith("/") || href.startsWith("#")) && props.target !== "_blank";
     if (isInternal) {
       return (
         <Link href={href} {...props}>
