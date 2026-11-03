@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "productlab",
+  "account_id": "5f655d4377e907878cdef8b5c4a5c32e",
   "compatibility_date": "2026-09-03",
   "assets": {
     "directory": "./out",

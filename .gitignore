@@ -30,3 +30,6 @@ next-env.d.ts
 .wrangler/
 cloudflare-env.d.ts
 .dev.vars
+
+# project-local wrangler login (personal Cloudflare account, separate from the global Therapeon login)
+/.wrangler-home/
