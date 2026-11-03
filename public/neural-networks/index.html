@@ -76,7 +76,7 @@ a{color:var(--accent)}
 .top .wrap{display:flex;align-items:center;gap:18px;height:56px}
 .back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
 .back:hover{color:var(--text)}
-.toc{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.toc{position:relative;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
 .toc::-webkit-scrollbar{display:none}
 .toc a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px;white-space:nowrap}
 .toc a:hover{background:var(--tint);color:var(--text)}
@@ -117,7 +117,8 @@ code,.m{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.88em}
 @media (max-width:920px){.stick{position:static}}
 .stack>*+*{margin-top:14px}
 canvas{display:block;width:100%}
-canvas.sq{aspect-ratio:1/1;border-radius:10px;touch-action:none;cursor:crosshair}
+canvas.sq{aspect-ratio:1/1;border-radius:10px;cursor:crosshair}
+#n1-plane{touch-action:none}
 canvas.wide{height:110px}
 .cap{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.45}
 
@@ -1475,8 +1476,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () 
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawAll);
 // highlight current chapter in the nav
 (function () {
-  const links = [...document.querySelectorAll('#toc a')], map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.remove('on')); const a = map.get(e.target.id); if (a) { a.classList.add('on'); a.scrollIntoView({ block: 'nearest', inline: 'center' }); } } }), { rootMargin: '-45% 0px -50% 0px' });
+  const toc = document.getElementById('toc'), links = [...toc.querySelectorAll('a')], map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.classList.remove('on')); const a = map.get(e.target.id); if (a) { a.classList.add('on'); toc.scrollTo({ left: a.offsetLeft - (toc.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' }); } } }), { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('section.ch').forEach(s => io.observe(s));
 })();
 </script>
