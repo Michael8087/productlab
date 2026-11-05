@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy | Prototypes</title>
+<style>
+:root{--bg:#f6f8f5;--fg:#1d1418;--mut:#5d655a;--line:#dde3da;--g:#c8412b}
+@media (prefers-color-scheme:dark){:root{--bg:#17110f;--fg:#eef1ea;--mut:#a3ab9f;--line:#2c3127;--g:#ff7a5c}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:36px 16px 60px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:16px;margin:26px 0 6px;color:var(--g)}
+p,li{color:var(--fg)}.mut{color:var(--mut);font-size:14px}
+a{color:var(--g)}
+</style></head><body><div class="wrap">
+<h1>Privacy</h1>
+<p class="mut">This is a personal demo prototype, not a Perkly product and not a commercial service.</p>
+
+<h2>What "Sign in with Google" does</h2>
+<p>If you choose to sign in, the page asks Google for permission to read and create events in your Google Calendar (scope <code>calendar.events</code>). It uses this only to show which times are busy and to add a booking event when you book a demo deal.</p>
+
+<h2>What is stored</h2>
+<ul>
+<li><b>Access token:</b> kept in your browser's memory only. It is gone when you close or reload the page.</li>
+<li><b>Calendar data:</b> read directly from Google into your browser. It is not sent to any server of mine and not saved anywhere.</li>
+<li><b>Events written:</b> bookings you make are created in your own Google Calendar. You can delete them there at any time.</li>
+<li><b>Browser storage:</b> demo state (purchases, demo bookings) stays in your browser's local storage on this device.</li>
+</ul>
+
+<h2>No analytics, no sharing</h2>
+<p>The site has no backend, no analytics and no ads. Nothing about you is collected, sold or shared.</p>
+
+<h2>Revoking access</h2>
+<p>Use "Sign out" in the calendar panel, or remove the app at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+
+<h2>Unverified app notice</h2>
+<p>Google may show "Google hasn't verified this app". That is expected for a personal demo. Continue only if you are comfortable with the description above.</p>
+
+<p class="mut" style="margin-top:30px">Contact: mike.minovsky@gmail.com</p>
+</div></body></html>
