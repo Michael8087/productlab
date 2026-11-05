@@ -6,13 +6,13 @@
 <title>Perkly Personalization Prototype</title>
 <style>
 :root{
-  --green:#c8412b;
-  --green-dark:#9e3120;
-  --green-light:#fce9e4;
+  --green:#b45309;
+  --green-dark:#92400e;
+  --green-light:#fef3e2;
   --bg-desk:#ece6e3;
   --bg:#ffffff;
-  --hdr-top:#3b1a47;
-  --hdr-bot:#240f2c;
+  --hdr-top:#1c1d22;
+  --hdr-bot:#0e0f12;
   --surface:#ffffff;
   --text:#1d1418;
   --text-muted:#6f6563;
@@ -20,8 +20,8 @@
   --red:#c22b1f;
   --gold:#e0a512;
   --pink:#e01575;
-  --navy:#3b1a47;
-  --navy-2:#5a2a6b;
+  --navy:#1c1d22;
+  --navy-2:#2e3038;
   --link:#1a73e8;
   --tint:#f3eeec;
   --shadow: 0 1px 2px rgba(20,30,10,.06);
@@ -36,8 +36,8 @@
     --text:#f3ecea;
     --text-muted:#a89c98;
     --border:#33292a;
-    --green:#ff7a5c;
-    --green-light:#3a1a14;
+    --green:#f59e0b;
+    --green-light:#3a2a12;
     --tint:#241b1a;
     color-scheme:dark;
   }
@@ -49,8 +49,8 @@
   --text:#f3ecea;
   --text-muted:#a89c98;
   --border:#33292a;
-  --green:#ff7a5c;
-  --green-light:#3a1a14;
+  --green:#f59e0b;
+  --green-light:#3a2a12;
   --tint:#241b1a;
   color-scheme:dark;
 }
@@ -123,7 +123,7 @@ a{color:inherit;}
   font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
   padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;
 }
-.visit-badge.returning{background:#c8412b;border-color:#ff7a5c;}
+.visit-badge.returning{background:#b45309;border-color:#f59e0b;}
 .visit-badge.bump{animation:badgeBump .7s ease;}
 @keyframes badgeBump{0%{transform:scale(1);}35%{transform:scale(1.25);}100%{transform:scale(1);}}
 .statusbar .icons{display:flex;gap:6px;align-items:center;}
@@ -465,7 +465,7 @@ a{color:inherit;}
 }
 .promo-bar{
   position:absolute;left:0;right:0;bottom:58px;z-index:52;
-  background:linear-gradient(90deg, #5b2a86 0%, #5a2a6b 100%);color:#fff;
+  background:linear-gradient(90deg, #5b2a86 0%, #2e3038 100%);color:#fff;
   display:flex;align-items:center;gap:12px;padding:12px 14px;
 }
 .promo-bar .msg{flex:1;font-size:13px;font-weight:700;line-height:1.3;}
@@ -492,7 +492,7 @@ a{color:inherit;}
 @media (min-width:480px){
   .terminal-panel{
     --bg:#0d1117; --surface:#161b22; --text:#c9d1d9; --text-muted:#8b949e;
-    --border:#30363d; --green:#ff7a5c; --green-light:#3a1a14; --red:#f85149;
+    --border:#30363d; --green:#f59e0b; --green-light:#3a2a12; --red:#f85149;
     display:flex;flex-direction:column;
     position:fixed;top:20px;right:20px;
     width:calc(50% - 240px - 20px);
@@ -516,14 +516,14 @@ a{color:inherit;}
     box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
   }
   .task-panel .brief{height:100%;overflow-y:auto;padding:26px 24px 32px;font-family:'Work Sans',system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1d1418;}
-  .brief .b-eyebrow{color:#c8412b;font-size:11px;font-weight:700;letter-spacing:.12em;}
+  .brief .b-eyebrow{color:#b45309;font-size:11px;font-weight:700;letter-spacing:.12em;}
   .brief h1{font-family:'Baloo 2',system-ui,sans-serif;font-size:24px;line-height:1.15;margin:6px 0 4px;}
   .brief .b-meta{color:#6f6563;font-size:12.5px;margin:0 0 18px;}
-  .brief h2{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9e3120;margin:22px 0 6px;}
+  .brief h2{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#92400e;margin:22px 0 6px;}
   .brief p{margin:6px 0;}
   .brief ul{padding-left:18px;margin:6px 0;}
   .brief li{margin:5px 0;}
-  .brief .b-q{font-size:15.5px;border-left:4px solid #c8412b;padding:4px 0 4px 12px;margin:16px 0;}
+  .brief .b-q{font-size:15.5px;border-left:4px solid #b45309;padding:4px 0 4px 12px;margin:16px 0;}
   .brief .b-foot{margin-top:22px;padding-top:10px;border-top:1px solid #ebe3df;color:#6f6563;font-size:12px;}
 }
 .term-titlebar{
@@ -540,7 +540,7 @@ a{color:inherit;}
 @media (min-width:480px){
   .terminal-panel.light{
     --bg:#f6f7f3; --surface:#ffffff; --text:#1d1418; --text-muted:#6f6563;
-    --border:#ebe3df; --green:#c8412b; --green-light:#fce9e4; --red:#c22b1f;
+    --border:#ebe3df; --green:#b45309; --green-light:#fef3e2; --red:#c22b1f;
   }
 }
 .drawer-scroll{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:16px;font-size:12.5px;}
@@ -702,7 +702,7 @@ a{color:inherit;}
 .dd-qty i{font-style:normal;min-width:10px;text-align:center;}
 .dd-buy{flex:1;height:48px;border-radius:999px;background:var(--green);color:#fff;border:none;font-family:'Baloo 2', system-ui, sans-serif;font-size:18px;font-weight:600;cursor:pointer;}
 .dd-buy.done{background:var(--green-dark);cursor:default;}
-.dd-giftrow{margin-top:12px;border:1.5px solid rgba(200,65,43,.4);background:var(--green-light);border-radius:999px;padding:9px 10px;text-align:center;font-size:12.5px;color:var(--green);font-weight:600;}
+.dd-giftrow{margin-top:12px;border:1.5px solid rgba(180,83,9,.4);background:var(--green-light);border-radius:999px;padding:9px 10px;text-align:center;font-size:12.5px;color:var(--green);font-weight:600;}
 .dd-giftrow u{cursor:pointer;}
 /* replay overlay on the phone */
 .replay-shield{position:absolute;inset:0;z-index:85;}
@@ -2623,7 +2623,7 @@ function detailHtml(d){
     + '<div class="dd-right">'
     +   '<button class="dd-round" id="ddShare" aria-label="Share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg></button>'
     +   '<button class="dd-round" id="ddHeart" aria-label="Save">'+heartSvg(liked)+'</button>'
-    +   '<button class="dd-round" id="ddCart" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8412b" stroke-width="1.8"><circle cx="9" cy="21" r="1.3" fill="#c8412b" stroke="none"/><circle cx="18" cy="21" r="1.3" fill="#c8412b" stroke="none"/><path d="M2 3h2l2.6 12.6a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg>'+(p.purchases.length ? '<span class="dd-badge">'+p.purchases.length+'</span>' : '')+'</button>'
+    +   '<button class="dd-round" id="ddCart" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="1.8"><circle cx="9" cy="21" r="1.3" fill="#b45309" stroke="none"/><circle cx="18" cy="21" r="1.3" fill="#b45309" stroke="none"/><path d="M2 3h2l2.6 12.6a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg>'+(p.purchases.length ? '<span class="dd-badge">'+p.purchases.length+'</span>' : '')+'</button>'
     + '</div></div>';
   h += '<div class="dd-hero" style="background:'+photoStyle(d.photoId, 900, 700)+';"></div>';
   h += '<div class="dd-thumbs">'
@@ -2638,7 +2638,7 @@ function detailHtml(d){
   }
   h += '<div class="dd-opt"><div class="dd-opt-head"><span>'+esc(d.subcategory)+' voucher</span><span class="dd-chev">'+chevronSvg()+'</span></div>'
     + '<div class="dd-incl"><b>What\'s Included</b>'
-    + includedList(d).map(function(t){ return '<div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8412b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>'+esc(t)+'</span></div>'; }).join("")
+    + includedList(d).map(function(t){ return '<div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>'+esc(t)+'</span></div>'; }).join("")
     + '</div>'
     + '<div class="dd-price">'
     +   '<div class="t1"><span class="orig">$'+d.regular_price+'</span><span class="sale">$'+d.deal_price+'</span><span class="pct-pill">'+off(d)+'% Off</span></div>'
